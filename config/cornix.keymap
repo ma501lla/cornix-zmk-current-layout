@@ -137,7 +137,7 @@ vial_combo_9 {
 &none  &none  &none  &kp SQT  &none  &none  &none  &to 9  &none  &kp N1  &kp N2  &kp N3  &kp KP_PLUS  &none
 &none  &none  &none  &none  &none  &none  &kp BSPC  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp K_NONE K_NONE &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_2 {
@@ -148,7 +148,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &tog 9  &tog 9  &none  &none  &kp LBKT  &kp RBKT  &none  &none
 &to 0  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &none  &msc SCRL_DOWN  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp K_NONE C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp 0 C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_3 {
