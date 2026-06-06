@@ -1,13 +1,13 @@
 ---
-# Use cornix without dongle
+# Use Cornix without dongle. Explicit revision is required by current Zephyr/ZMK.
 include:
-  - board: cornix_left//zmk
+  - board: cornix_left@1.0.0//zmk
     snippet: studio-rpc-usb-uart
     artifact-name: cornix_left
 
-  - board: cornix_right//zmk
+  - board: cornix_right@1.0.0//zmk
     artifact-name: cornix_right
 
-  - board: cornix_right//zmk
+  - board: cornix_right@1.0.0//zmk
     shield: settings_reset
     artifact-name: reset
