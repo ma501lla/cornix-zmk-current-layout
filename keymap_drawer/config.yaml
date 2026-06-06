@@ -1,0 +1,11 @@
+# keymap-drawer 描画設定 (現行 docs/keymap.svg の 1u=56px ジオメトリに合わせて再構築)
+# 物理レイアウトは keymap_drawer/cornix_info.json (現 SVG から復元)。
+# 再生成: keymap parse -z config/cornix.keymap > k.yaml
+#         keymap -c keymap_drawer/config.yaml draw -j keymap_drawer/cornix_info.json -l LAYOUT k.yaml > docs/keymap.svg
+draw_config:
+  key_w: 56
+  key_h: 56
+  inner_pad_w: 2
+  inner_pad_h: 2
+  combo_h: 18
+  combo_w: 24
