@@ -1,6 +1,6 @@
 /*
  * Generated from the user's RMK/Vial backup on 2026-06-07.
- * Sensitive text macros M28-M31 and unknown RMK USER00-02 actions are intentionally disabled.
+ * Unknown RMK USER00-02 actions are intentionally disabled.
  */
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -54,6 +54,26 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
+        };
+        macro_m28: macro_m28 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N8 &kp N1 &kp FSLH &kp N0 &kp N1 &kp FSLH &kp N0 &kp N8>;
+        };
+        macro_m29: macro_m29 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(A) &kp N5 &kp N1 &kp N3 &kp N4>;
+        };
+        macro_m30: macro_m30 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N1) &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
+        };
+        macro_m31: macro_m31 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N1 &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
         };
     };
 
@@ -216,9 +236,9 @@ vial_combo_9 {
         display-name = "Vial 8";
         bindings = <
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &macro_m28  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &mkp MCLK  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &macro_m29  &macro_m30  &macro_m31  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
