@@ -1,8 +1,9 @@
 /*
  * Generated from the user's RMK/Vial backup on 2026-06-07.
- * Unknown RMK USER00-02 actions are intentionally disabled.
+ * RMK USER00-02 actions are mapped to Mac, iPhone, and Windows Bluetooth profiles.
  */
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 
@@ -246,9 +247,9 @@ vial_combo_9 {
     layer_9 {
         display-name = "Vial 9";
         bindings = <
+&none  &none  &bt BT_SEL 2  &none  &none  &none  &none  &none  &bt BT_SEL 1  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0  &none  &none  &none  &none
 &none  &none  &none  &to 4  &to 4  &to 4  &to 0  &to 0  &to 0  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
