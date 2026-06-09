@@ -43,6 +43,12 @@
             bindings = <&kp MINUS>, <&kp LS(INT1)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        mac_minus_hankaku: mac_minus_hankaku {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp LC(SEMI)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 
     macros {
@@ -149,7 +155,7 @@ vial_combo_9 {
         display-name = "Vial 0";
         bindings = <
 &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
-&none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &kp F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &kp MINUS  &none
+&none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &kp F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
 &none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &kp BSPC  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
