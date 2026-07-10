@@ -6,8 +6,9 @@ permissions:
   contents: read
 
 env:
-  ZMK_CONFIG_DIR: ${{ github.workspace }}/config
+  SOURCE_CONFIG_DIR: ${{ github.workspace }}/config
   ZMK_BUILD_BASE: /tmp/zmk-config
+  ZMK_CONFIG_DIR: /tmp/zmk-config/config
   ARTIFACT_DIR: /tmp/zmk-firmware-artifacts
 
 jobs:
@@ -21,7 +22,8 @@ jobs:
 
       - name: Prepare west workspace
         run: |
-          mkdir -p "${ZMK_BUILD_BASE}"
+          mkdir -p "${ZMK_CONFIG_DIR}"
+          cp -R "${SOURCE_CONFIG_DIR}"/* "${ZMK_CONFIG_DIR}/"
           cd "${ZMK_BUILD_BASE}"
           west init -l "${ZMK_CONFIG_DIR}"
           west update --fetch-opt=--filter=tree:0
