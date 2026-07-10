@@ -50,7 +50,7 @@
 / {
     behaviors {
 
-
+    /omit-if-no-ref/
 
         kp: key_press {
             compatible = "zmk,behavior-key-press";
@@ -73,7 +73,7 @@
 / {
     behaviors {
 
-
+    /omit-if-no-ref/
 
         kt: key_toggle {
             compatible = "zmk,behavior-key-toggle";
@@ -96,7 +96,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         trans: transparent {
             compatible = "zmk,behavior-transparent";
@@ -119,7 +119,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         none: none {
             compatible = "zmk,behavior-none";
@@ -142,7 +142,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -168,7 +168,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         lt: layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -220,7 +220,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         gresc: grave_escape {
             compatible = "zmk,behavior-mod-morph";
@@ -245,7 +245,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         sk: sticky_key {
             compatible = "zmk,behavior-sticky-key";
@@ -256,7 +256,7 @@
             display-name = "Sticky Key";
         };
 
-
+        /omit-if-no-ref/
 
         sl: sticky_layer {
             compatible = "zmk,behavior-sticky-key";
@@ -283,7 +283,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         mo: momentary_layer {
             compatible = "zmk,behavior-momentary-layer";
@@ -306,7 +306,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         tog: toggle_layer {
             compatible = "zmk,behavior-toggle-layer";
@@ -330,7 +330,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         to: to_layer {
             compatible = "zmk,behavior-to-layer";
@@ -420,7 +420,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         bt: bluetooth {
             compatible = "zmk,behavior-bluetooth";
@@ -461,7 +461,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         out: outputs {
             compatible = "zmk,behavior-outputs";
@@ -485,7 +485,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         caps_word: caps_word {
             compatible = "zmk,behavior-caps-word";
@@ -510,7 +510,7 @@
 / {
     behaviors {
 
-
+    /omit-if-no-ref/
 
         key_repeat: key_repeat {
             compatible = "zmk,behavior-key-repeat";
@@ -534,7 +534,7 @@
  / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
 
         bl: bcklight {
@@ -614,7 +614,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         soft_off: z_so_off {
             compatible = "zmk,behavior-soft-off";
@@ -661,7 +661,7 @@
 / {
     behaviors {
 
-
+        /omit-if-no-ref/
 
         mkp: mouse_key_press {
             compatible = "zmk,behavior-mouse-key-press";
@@ -1054,25 +1054,6 @@ vial_combo_9 {
         sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
     };
 
-    };
-};
-# 0 "<command-line>" 2
-# 1 "/tmp/zmk-config/zmk/app/snippets/studio-rpc-usb-uart/studio-rpc-usb-uart.overlay" 1
-
-
-
-
-
-
-/ {
-    chosen {
-        zmk,studio-rpc-uart = &snippet_studio_rpc_usb_uart;
-    };
-};
-
-&zephyr_udc0 {
-    snippet_studio_rpc_usb_uart: snippet_studio_rpc_usb_uart {
-        compatible = "zephyr,cdc-acm-uart";
     };
 };
 # 0 "<command-line>" 2

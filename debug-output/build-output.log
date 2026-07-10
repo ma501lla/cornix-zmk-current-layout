@@ -17,26 +17,120 @@ cornix_left__zmk for __zmk for cornix_left with version 1.0.0
 -- Using keymap file: /tmp/zmk-config/config/cornix.keymap
 -- Using keymap file: /tmp/zmk-config/config/cornix.keymap
 Checking /tmp/zmk-config/zephyr
--- Snippet(s): studio-rpc-usb-uart
 -- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
 -- Found host-tools: zephyr 0.16.9 (/opt/zephyr-sdk-0.16.9)
 -- Found toolchain: zephyr 0.16.9 (/opt/zephyr-sdk-0.16.9)
 -- Found Dtc: /opt/zephyr-sdk-0.16.9/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.6.0", minimum required is "1.4.6")
 -- Found BOARD.dts: /tmp/zmk-config/zephyr/boards/common/stub.dts
 -- Found devicetree overlay: /tmp/zmk-config/config/cornix.keymap
--- Found devicetree overlay: /tmp/zmk-config/zmk/app/snippets/studio-rpc-usb-uart/studio-rpc-usb-uart.overlay
-devicetree error: /tmp/zmk-config/zmk/app/snippets/studio-rpc-usb-uart/studio-rpc-usb-uart.overlay:13 (column 1): parse error: undefined node label 'zephyr_udc0'
-CMake Error at /tmp/zmk-config/zephyr/cmake/modules/dts.cmake:303 (execute_process):
-  execute_process failed command indexes:
+-- Generated zephyr.dts: /tmp/zmk-build/zephyr/zephyr.dts
+-- Generated pickled edt: /tmp/zmk-build/zephyr/edt.pickle
+-- Generated devicetree_generated.h: /tmp/zmk-build/zephyr/include/generated/zephyr/devicetree_generated.h
+-- Including generated dts.cmake file: /tmp/zmk-build/zephyr/dts.cmake
 
-    1: "Child return code: 1"
+warning: ZMK_KSCAN_DEBOUNCE_PRESS_MS (defined at /tmp/zmk-config/zmk-keyboard-
+cornix/boards/jzf/cornix/Kconfig.defconfig:45, /tmp/zmk-config/zmk-keyboard-
+cornix/boards/jzf/cornix/Kconfig.defconfig:56, /tmp/zmk-
+config/zmk/app/module/drivers/kscan/Kconfig:111) was assigned the value '10' but got the value '3'.
+See http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_ZMK_KSCAN_DEBOUNCE_PRESS_MS and/or look
+up ZMK_KSCAN_DEBOUNCE_PRESS_MS in the menuconfig/guiconfig interface. The Application Development
+Primer, Setting Configuration Values, and Kconfig - Tips and Best Practices sections of the manual
+might be helpful too.
 
-Call Stack (most recent call first):
-  /tmp/zmk-config/zephyr/cmake/modules/zephyr_default.cmake:134 (include)
-  /tmp/zmk-config/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)
-  /tmp/zmk-config/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)
-  CMakeLists.txt:9 (find_package)
+
+warning: ZMK_KSCAN_DEBOUNCE_RELEASE_MS (defined at /tmp/zmk-config/zmk-keyboard-
+cornix/boards/jzf/cornix/Kconfig.defconfig:47, /tmp/zmk-config/zmk-keyboard-
+cornix/boards/jzf/cornix/Kconfig.defconfig:58, /tmp/zmk-
+config/zmk/app/module/drivers/kscan/Kconfig:120) was assigned the value '10' but got the value '3'.
+See http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_ZMK_KSCAN_DEBOUNCE_RELEASE_MS and/or
+look up ZMK_KSCAN_DEBOUNCE_RELEASE_MS in the menuconfig/guiconfig interface. The Application
+Development Primer, Setting Configuration Values, and Kconfig - Tips and Best Practices sections of
+the manual might be helpful too.
 
 
--- Configuring incomplete, errors occurred!
-FATAL ERROR: command exited with status 1: /usr/local/bin/cmake -DWEST_PYTHON=/usr/bin/python3 -B/tmp/zmk-build -GNinja -DBOARD=cornix_left@1.0.0//zmk -DZMK_CONFIG=/tmp/zmk-config/config -DSNIPPET=studio-rpc-usb-uart -S/tmp/zmk-config/zmk/app
+warning: The choice symbol BT_CTLR_TX_PWR_PLUS_8 (defined at
+subsys/bluetooth/controller/Kconfig:364) was selected (set =y), but no symbol ended up as the choice
+selection. See http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_BT_CTLR_TX_PWR_PLUS_8 and/or
+look up BT_CTLR_TX_PWR_PLUS_8 in the menuconfig/guiconfig interface. The Application Development
+Primer, Setting Configuration Values, and Kconfig - Tips and Best Practices sections of the manual
+might be helpful too.
+
+
+warning: Deprecated symbol KSCAN is enabled.
+
+Parsing /tmp/zmk-config/zmk/app/Kconfig
+Loaded configuration '/tmp/zmk-config/zmk/app/prj.conf'
+Merged configuration '/tmp/zmk-config/config/cornix.conf'
+Configuration saved to '/tmp/zmk-build/zephyr/.config'
+Kconfig header saved to '/tmp/zmk-build/zephyr/include/generated/zephyr/autoconf.h'
+-- Found GnuLd: /opt/zephyr-sdk-0.16.9/arm-zephyr-eabi/arm-zephyr-eabi/bin/ld.bfd (found version "2.38")
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /opt/zephyr-sdk-0.16.9/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+CMake Warning at /tmp/zmk-config/zephyr/subsys/random/CMakeLists.txt:12 (message):
+  
+
+      Warning: CONFIG_TIMER_RANDOM_GENERATOR and CONFIG_TEST_CSPRNG_GENERATOR are
+      not truly random generators. This capability is not secure and it is
+      provided for testing purposes only. Use it carefully.
+
+
+CMake Warning at /tmp/zmk-config/zephyr/modules/mbedtls/CMakeLists.txt:11 (message):
+  No entropy device on the system, using fake entropy source!
+
+
+-- Using ccache: /usr/bin/ccache
+CMake Warning at /tmp/zmk-config/zephyr/CMakeLists.txt:1011 (message):
+  No SOURCES given to Zephyr library: drivers__clock_control
+
+  Excluding target from build.
+
+
+CMake Warning at /tmp/zmk-config/zephyr/CMakeLists.txt:1011 (message):
+  No SOURCES given to Zephyr library: drivers__kscan
+
+  Excluding target from build.
+
+
+CMake Warning at /tmp/zmk-config/zephyr/CMakeLists.txt:1011 (message):
+  No SOURCES given to Zephyr library: drivers__retained_mem
+
+  Excluding target from build.
+
+
+-- Found Nanopb: /tmp/zmk-config/modules/lib/nanopb
+-- Found protoc: /tmp/zmk-config/modules/lib/nanopb/generator/protoc
+-- Configuring done (7.0s)
+-- Generating done (0.2s)
+-- Build files have been written to: /tmp/zmk-build
+-- west build: building application
+[1/365] Preparing syscall dependency handling
+
+[2/365] Generating include/generated/zephyr/app_version.h
+[3/365] Generating include/generated/zephyr/version.h
+-- Zephyr version: 4.1.0 (/tmp/zmk-config/zephyr), build: 9df4b12b5af3
+[4/365] Generating misc/generated/syscalls_subdirs.trigger
+[5/365] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json
+[6/365] Generating include/generated/device-api-sections.ld, include/generated/device-api-sections.cmake
+[7/365] Generating include/generated/zephyr/syscall_dispatch.c, include/generated/zephyr/syscall_exports_llext.c, syscall_weakdefs_llext.c, include/generated/zephyr/syscall_list.h
+[8/365] Generating include/generated/zephyr/driver-validation.h
+[9/365] Generating include/generated/zephyr/kobj-types-enum.h, include/generated/zephyr/otype-to-str.h, include/generated/zephyr/otype-to-size.h
+[10/365] Building C object zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+FAILED: zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj 
+ccache /opt/zephyr-sdk-0.16.9/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc -DKERNEL -DK_HEAP_MEM_POOL_SIZE=0 -DNRF52840_XXAA -DPB_MAX_REQUIRED_FIELDS=64 -DPB_NO_ERRMSG -DPB_WITHOUT_64BIT -DPICOLIBC_DOUBLE_PRINTF_SCANF -D__LINUX_ERRNO_EXTENSIONS__ -D__PROGRAM_START -D__ZEPHYR__=1 -I/tmp/zmk-config/zephyr/kernel/include -I/tmp/zmk-config/zephyr/arch/arm/include -I/tmp/zmk-build/zephyr/include/generated/zephyr -I/tmp/zmk-config/zephyr/include -I/tmp/zmk-build/zephyr/include/generated -I/tmp/zmk-config/zephyr/soc/nordic -I/tmp/zmk-config/zephyr/soc/nordic/nrf52/. -I/tmp/zmk-config/zephyr/soc/nordic/common/. -I/tmp/zmk-config/zephyr/subsys/bluetooth -I/tmp/zmk-config/zephyr/subsys/settings/include -I/tmp/zmk-config/modules/lib/nanopb -I/tmp/zmk-config/modules/hal/cmsis/CMSIS/Core/Include -I/tmp/zmk-config/zephyr/modules/cmsis/. -I/tmp/zmk-config/modules/hal/nordic/nrfx -I/tmp/zmk-config/modules/hal/nordic/nrfx/drivers/include -I/tmp/zmk-config/modules/hal/nordic/nrfx/mdk -I/tmp/zmk-config/zephyr/modules/hal_nordic/nrfx/. -I/tmp/zmk-config/zmk/app/module/include -isystem /tmp/zmk-config/zephyr/lib/libc/common/include -fno-strict-aliasing -Os -imacros /tmp/zmk-build/zephyr/include/generated/zephyr/autoconf.h -fno-common -g -gdwarf-4 -fdiagnostics-color=always -mcpu=cortex-m4 -mthumb -mabi=aapcs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mfp16-format=ieee -mtp=soft --sysroot=/opt/zephyr-sdk-0.16.9/arm-zephyr-eabi/arm-zephyr-eabi -imacros /tmp/zmk-config/zephyr/include/zephyr/toolchain/zephyr_stdint.h -Wall -Wformat -Wformat-security -Wno-format-zero-length -Wdouble-promotion -Wno-pointer-sign -Wpointer-arith -Wexpansion-to-defined -Wno-unused-but-set-variable -Werror=implicit-int -fno-pic -fno-pie -fno-asynchronous-unwind-tables -ftls-model=local-exec -fno-reorder-functions --param=min-pagesize=0 -fno-defer-pop -fmacro-prefix-map=/tmp/zmk-config/zmk/app=CMAKE_SOURCE_DIR -fmacro-prefix-map=/tmp/zmk-config/zephyr=ZEPHYR_BASE -fmacro-prefix-map=/tmp/zmk-config=WEST_TOPDIR -ffunction-sections -fdata-sections -specs=picolibc.specs -std=c11 -Wfatal-errors -fno-lto -MD -MT zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj -MF zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj.d -o zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj -c /tmp/zmk-config/zephyr/arch/arm/core/offsets/offsets.c
+In file included from /tmp/zmk-config/zephyr/modules/cmsis/./cmsis_core.h:10,
+                 from /tmp/zmk-config/zephyr/include/zephyr/arch/arm/asm_inline_gcc.h:24,
+                 from /tmp/zmk-config/zephyr/include/zephyr/arch/arm/asm_inline.h:18,
+                 from /tmp/zmk-config/zephyr/include/zephyr/arch/arm/arch.h:30,
+                 from /tmp/zmk-config/zephyr/include/zephyr/arch/cpu.h:19,
+                 from /tmp/zmk-config/zephyr/include/zephyr/kernel_includes.h:36,
+                 from /tmp/zmk-config/zephyr/include/zephyr/kernel.h:17,
+                 from /tmp/zmk-config/zephyr/arch/arm/core/offsets/offsets_aarch32.c:28,
+                 from /tmp/zmk-config/zephyr/arch/arm/core/offsets/offsets.c:9:
+/tmp/zmk-config/zephyr/modules/cmsis/./cmsis_core_m.h:27:2: error: #error "NUM_IRQ_PRIO_BITS and __NVIC_PRIO_BITS are not set to the same value"
+   27 | #error "NUM_IRQ_PRIO_BITS and __NVIC_PRIO_BITS are not set to the same value"
+      |  ^~~~~
+compilation terminated due to -Wfatal-errors.
+ninja: build stopped: subcommand failed.
+FATAL ERROR: command exited with status 1: /usr/local/bin/cmake --build /tmp/zmk-build
