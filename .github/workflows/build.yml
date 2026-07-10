@@ -1,6 +1,71 @@
 name: Build ZMK firmware
+
 on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+env:
+  ZMK_CONFIG_DIR: ${{ github.workspace }}/config
+  ZMK_BUILD_BASE: /tmp/zmk-config
+  ARTIFACT_DIR: /tmp/zmk-firmware-artifacts
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:stable
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Prepare west workspace
+        run: |
+          mkdir -p "${ZMK_BUILD_BASE}"
+          west init -l "${ZMK_CONFIG_DIR}" "${ZMK_BUILD_BASE}"
+          cd "${ZMK_BUILD_BASE}"
+          west update --fetch-opt=--filter=tree:0
+          west zephyr-export
+
+      - name: Build firmware
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${ARTIFACT_DIR}"
+
+          build_one() {
+            local board="$1"
+            local artifact="$2"
+            local shield="${3:-}"
+            local build_dir="/tmp/zmk-build-${artifact}"
+            local cmake_args=(-DZMK_CONFIG="${ZMK_CONFIG_DIR}")
+
+            if [ -n "${shield}" ]; then
+              cmake_args+=(-DSHIELD="${shield}")
+            fi
+
+            west build \
+              -s "${ZMK_BUILD_BASE}/zmk/app" \
+              -d "${build_dir}" \
+              -b "${board}" \
+              -- "${cmake_args[@]}"
+
+            if [ -f "${build_dir}/zephyr/zmk.uf2" ]; then
+              cp "${build_dir}/zephyr/zmk.uf2" "${ARTIFACT_DIR}/${artifact}.uf2"
+            elif [ -f "${build_dir}/zephyr/zmk.bin" ]; then
+              cp "${build_dir}/zephyr/zmk.bin" "${ARTIFACT_DIR}/${artifact}.bin"
+            else
+              echo "No firmware output found for ${artifact}" >&2
+              exit 1
+            fi
+          }
+
+          build_one cornix_left cornix_left
+          build_one cornix_right cornix_right
+          build_one cornix_right reset settings_reset
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v7
+        with:
+          name: firmware
+          path: ${{ env.ARTIFACT_DIR }}
