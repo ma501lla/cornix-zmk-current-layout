@@ -19,21 +19,6 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
         };
-        macro_paren_pair: macro_paren_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(N9) &kp LS(N0) &kp LEFT>;
-        };
-        macro_brace_pair: macro_brace_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(LBKT) &kp LS(RBKT) &kp LEFT>;
-        };
-        macro_bracket_pair: macro_bracket_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
-        };
         macro_m28: macro_m28 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -108,6 +93,21 @@
             #binding-cells = <0>;
             bindings = <&kp KP_PLUS>, <&kp KP_MULTIPLY>;
             tapping-term-ms = <200>;
+        };
+        macro_paren_pair: macro_paren_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N9) &kp LS(N0) &kp LEFT>;
+        };
+        macro_brace_pair: macro_brace_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(LBKT) &kp LS(RBKT) &kp LEFT>;
+        };
+        macro_bracket_pair: macro_bracket_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
         };
         paren_pair_td: paren_pair_td {
             compatible = "zmk,behavior-tap-dance";
