@@ -171,7 +171,7 @@ vial_combo_9 {
 &none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_1 {
@@ -182,7 +182,7 @@ vial_combo_9 {
 &none  &none  &none  &kp LS(SEMI)  &none  &none  &none  &to 9  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp 0 0>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_2 {
@@ -193,7 +193,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LBKT  &kp RBKT  &none  &none
 &to 0  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &none  &msc SCRL_DOWN  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp 0 C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp 0 C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_3 {
@@ -204,7 +204,7 @@ vial_combo_9 {
 &none  &none  &none  &kp N1  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &kp ENTER  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_4 {
@@ -215,7 +215,7 @@ vial_combo_9 {
 &none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
 &none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_5 {
@@ -226,7 +226,7 @@ vial_combo_9 {
 &none  &none  &none  &kp SQT  &kp LC(Z)  &none  &none  &none  &kp LS(MINUS)  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_6 {
@@ -237,7 +237,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp RBKT  &kp BSLH  &none  &none
 &none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_7 {
@@ -248,7 +248,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &to 9  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &mo 10  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_8 {
@@ -259,7 +259,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &mkp MCLK  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &macro_m29  &macro_m30  &macro_m31  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_9 {
@@ -270,7 +270,7 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0  &none  &none  &none  &none
 &none  &none  &none  &to 4  &to 4  &to 4  &to 0  &to 0  &to 0  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     layer_10 {
@@ -281,7 +281,7 @@ vial_combo_9 {
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&inc_dec_kp PG_UP PG_DN>;
     };
 
     };
