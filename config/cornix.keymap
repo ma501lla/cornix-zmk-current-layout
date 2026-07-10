@@ -79,17 +79,23 @@
             bindings = <&kp LBKT>, <&macro_bracket_pair>;
             tapping-term-ms = <200>;
         };
-        angle_pair_td: angle_pair_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&kp LS(COMMA)>, <&macro_angle_pair>;
-            tapping-term-ms = <200>;
-        };
-        comma_angle_pair: comma_angle_pair {
+        comma_angle_single: comma_angle_single {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&angle_pair_td>;
+            bindings = <&kp COMMA>, <&kp LS(COMMA)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        comma_angle_double: comma_angle_double {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&macro_double_comma>, <&macro_angle_pair>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        comma_angle_pair: comma_angle_pair {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&comma_angle_single>, <&comma_angle_double>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -123,6 +129,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
+        };
+        macro_double_comma: macro_double_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp COMMA &kp COMMA>;
         };
         macro_m28: macro_m28 {
             compatible = "zmk,behavior-macro";
