@@ -33,6 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          cd "${ZMK_BUILD_BASE}"
           mkdir -p "${ARTIFACT_DIR}"
 
           build_one() {
