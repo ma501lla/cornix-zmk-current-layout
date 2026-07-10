@@ -6,6 +6,9 @@ on:
       - codex/isolate-original-keymap-20260711
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   debug-left:
     runs-on: ubuntu-latest
@@ -45,6 +48,21 @@ jobs:
             find /tmp/zmk-build -maxdepth 4 -type f \( -name '*.log' -o -name '.config' -o -name 'zephyr.dts' -o -name 'zephyr.dts.pre' \) -print -exec cp --parents {} /tmp/zmk-debug/ \; || true
           fi
           exit 0
+
+      - name: Commit debug logs
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p debug-output
+          cp /tmp/zmk-debug/build-output.log debug-output/build-output.log || true
+          cp /tmp/zmk-debug/build-status.txt debug-output/build-status.txt || true
+          find /tmp/zmk-debug -type f \( -name '*.log' -o -name '.config' -o -name 'zephyr.dts' -o -name 'zephyr.dts.pre' \) -exec cp {} debug-output/ \; || true
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add debug-output
+          git commit -m "Add debug build logs [skip ci]" || true
+          git push || true
 
       - name: Upload debug logs
         uses: actions/upload-artifact@v4
