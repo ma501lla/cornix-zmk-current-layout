@@ -41,7 +41,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          west build -s zmk/app -d /tmp/zmk-build -b cornix_left@1.0.0//zmk -S "studio-rpc-usb-uart" -- -DZMK_CONFIG=/tmp/zmk-config/config > /tmp/zmk-debug/build-output.log 2>&1
+          west build -s zmk/app -d /tmp/zmk-build -b cornix_left@1.0.0//zmk -- -DZMK_CONFIG=/tmp/zmk-config/config > /tmp/zmk-debug/build-output.log 2>&1
           status=$?
           echo "$status" > /tmp/zmk-debug/build-status.txt
           if [ -d /tmp/zmk-build ]; then
