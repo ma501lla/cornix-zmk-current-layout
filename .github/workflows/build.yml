@@ -22,8 +22,8 @@ jobs:
       - name: Prepare west workspace
         run: |
           mkdir -p "${ZMK_BUILD_BASE}"
-          west init -l "${ZMK_CONFIG_DIR}" "${ZMK_BUILD_BASE}"
           cd "${ZMK_BUILD_BASE}"
+          west init -l "${ZMK_CONFIG_DIR}"
           west update --fetch-opt=--filter=tree:0
           west zephyr-export
 
