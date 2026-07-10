@@ -34,16 +34,6 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
         };
-        macro_angle_pair: macro_angle_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
-        };
-        macro_double_comma: macro_double_comma {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp COMMA &kp COMMA>;
-        };
         macro_m28: macro_m28 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -137,24 +127,6 @@
             bindings = <&kp LBKT>, <&macro_bracket_pair>;
             tapping-term-ms = <200>;
         };
-        comma_angle_single: comma_angle_single {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LS(COMMA)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        comma_angle_double: comma_angle_double {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&macro_double_comma>, <&macro_angle_pair>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        comma_angle_pair: comma_angle_pair {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&comma_angle_single>, <&comma_angle_double>;
-            tapping-term-ms = <200>;
-        };
     };
 
     combos {
@@ -229,7 +201,7 @@ vial_combo_9 {
         bindings = <
 &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
 &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &kp F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
-&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &comma_angle_pair  &kp DOT  &kp LS(FSLH)  &none
+&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -273,7 +245,7 @@ vial_combo_9 {
         bindings = <
 &kp ESC  &td200 ESC Q  &td250 LG(TAB) W  &kp E  &kp R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
 &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &kp F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
-&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &comma_angle_pair  &kp DOT  &kp FSLH  &none
+&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
 &none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
