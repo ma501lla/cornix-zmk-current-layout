@@ -10,6 +10,7 @@ env:
   ZMK_BUILD_BASE: /tmp/zmk-config
   ZMK_CONFIG_DIR: /tmp/zmk-config/config
   CORNIX_MODULE_DIR: /tmp/zmk-config/zmk-keyboard-cornix
+  CORNIX_BOARD_DIR: /tmp/zmk-config/zmk-keyboard-cornix/boards/jzf/cornix
   ARTIFACT_DIR: /tmp/zmk-firmware-artifacts
 
 jobs:
@@ -35,7 +36,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          cat > "${CORNIX_MODULE_DIR}/boards/jzf/cornix/board.yml" <<'EOF'
+          cp "${CORNIX_BOARD_DIR}/cornix_left.dts" "${CORNIX_BOARD_DIR}/cornix_left_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_left_defconfig" "${CORNIX_BOARD_DIR}/cornix_left_nrf52840_zmk_defconfig"
+          cp "${CORNIX_BOARD_DIR}/cornix_right.dts" "${CORNIX_BOARD_DIR}/cornix_right_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_right_defconfig" "${CORNIX_BOARD_DIR}/cornix_right_nrf52840_zmk_defconfig"
+          cp "${CORNIX_BOARD_DIR}/cornix_ph_left.dts" "${CORNIX_BOARD_DIR}/cornix_ph_left_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_ph_left_defconfig" "${CORNIX_BOARD_DIR}/cornix_ph_left_nrf52840_zmk_defconfig"
+
+          cat > "${CORNIX_BOARD_DIR}/board.yml" <<'EOF'
           boards:
             - name: cornix_left
               vendor: jzf
