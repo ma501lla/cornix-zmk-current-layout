@@ -2,8 +2,6 @@
 .west/
 modules/
 zephyr/
-!config/zephyr/
-!config/zephyr/module.yml
 zmk/
 zmk-helpers/
 zmk-keyboard-cornix/
