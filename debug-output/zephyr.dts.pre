@@ -1,0 +1,1079 @@
+# 0 "/tmp/zmk-config/zephyr/misc/empty_file.c"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "/tmp/zmk-config/zephyr/boards/common/stub.dts" 1
+
+
+
+
+
+
+
+/dts-v1/;
+
+# 1 "/tmp/zmk-config/zephyr/dts/common/skeleton.dtsi" 1 3 4
+# 9 "/tmp/zmk-config/zephyr/dts/common/skeleton.dtsi" 3 4
+/ {
+ #address-cells = <1>;
+ #size-cells = <1>;
+ chosen { };
+ aliases { };
+};
+# 11 "/tmp/zmk-config/zephyr/boards/common/stub.dts" 2
+
+/ {
+
+};
+# 0 "<command-line>" 2
+# 1 "/tmp/zmk-config/config/cornix.keymap" 1
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/key_press.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/key_press.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        kp: key_press {
+            compatible = "zmk,behavior-key-press";
+            #binding-cells = <1>;
+            display-name = "Key Press";
+        };
+    };
+};
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/key_toggle.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/key_toggle.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        kt: key_toggle {
+            compatible = "zmk,behavior-key-toggle";
+            #binding-cells = <1>;
+            display-name = "Key Toggle";
+        };
+    };
+};
+# 9 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/transparent.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/transparent.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        trans: transparent {
+            compatible = "zmk,behavior-transparent";
+            #binding-cells = <0>;
+            display-name = "Transparent";
+        };
+    };
+};
+# 10 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/none.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/none.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        none: none {
+            compatible = "zmk,behavior-none";
+            #binding-cells = <0>;
+            display-name = "None";
+        };
+    };
+};
+# 11 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/mod_tap.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/mod_tap.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            display-name = "Mod-Tap";
+        };
+    };
+};
+# 12 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/layer_tap.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/layer_tap.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap";
+        };
+    };
+};
+# 13 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/gresc.dtsi" 1 3 4
+
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 9 "/tmp/zmk-config/zmk/app/dts/behaviors/gresc.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/keys.h" 1 3 4
+
+
+
+
+
+       
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/hid_usage.h" 1 3 4
+# 11 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/hid_usage.h" 3 4
+       
+# 9 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/keys.h" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/hid_usage_pages.h" 1 3 4
+# 11 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/hid_usage_pages.h" 3 4
+       
+# 10 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/keys.h" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/modifiers.h" 1 3 4
+
+
+
+
+
+       
+# 11 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/keys.h" 2 3 4
+# 10 "/tmp/zmk-config/zmk/app/dts/behaviors/gresc.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        gresc: grave_escape {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp (((((0x07) << 16) | (0x29))))>, <&kp ((((0x07) << 16) | (0x35)))>;
+            mods = <(0x08|0x02|0x80|0x20)>;
+            display-name = "Grave/Escape";
+        };
+    };
+};
+# 14 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/sticky_key.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/sticky_key.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        sk: sticky_key {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <1000>;
+            bindings = <&kp>;
+            ignore-modifiers;
+            display-name = "Sticky Key";
+        };
+
+
+
+        sl: sticky_layer {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <1000>;
+            bindings = <&mo>;
+            quick-release;
+            display-name = "Sticky Layer";
+        };
+    };
+
+};
+# 15 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/momentary_layer.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/momentary_layer.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        mo: momentary_layer {
+            compatible = "zmk,behavior-momentary-layer";
+            #binding-cells = <1>;
+            display-name = "Momentary Layer";
+        };
+    };
+};
+# 16 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/toggle_layer.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/toggle_layer.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        tog: toggle_layer {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer";
+            locking;
+        };
+    };
+};
+# 17 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/to_layer.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/to_layer.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        to: to_layer {
+            compatible = "zmk,behavior-to-layer";
+            #binding-cells = <1>;
+            display-name = "To Layer";
+            locking;
+        };
+    };
+};
+# 18 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/reset.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/reset.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/reset.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+        sys_reset: sysreset {
+            compatible = "zmk,behavior-reset";
+            #binding-cells = <0>;
+            display-name = "Reset";
+        };
+
+
+        bootloader: bootload {
+            compatible = "zmk,behavior-reset";
+            type = <0x57>;
+            bootloader;
+            #binding-cells = <0>;
+            display-name = "Bootloader";
+        };
+    };
+};
+# 19 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/sensor_rotate_key_press.dtsi" 1 3 4
+
+
+
+
+
+
+/ {
+    behaviors {
+
+        /omit-if-no-ref/ inc_dec_cp: inc_dec_kp: enc_key_press {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+};
+# 20 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/rgb_underglow.dtsi" 1 3 4
+
+
+
+
+
+
+/ {
+    behaviors {
+
+        rgb_ug: rgb_ug {
+            compatible = "zmk,behavior-rgb-underglow";
+            #binding-cells = <2>;
+            display-name = "Underglow";
+        };
+    };
+};
+# 21 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/bluetooth.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/bluetooth.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        bt: bluetooth {
+            compatible = "zmk,behavior-bluetooth";
+            #binding-cells = <2>;
+            display-name = "Bluetooth";
+        };
+    };
+};
+# 22 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/ext_power.dtsi" 1 3 4
+
+
+
+
+
+
+/ {
+    behaviors {
+
+        ext_power: extpower {
+            compatible = "zmk,behavior-ext-power";
+            #binding-cells = <1>;
+            display-name = "External Power";
+        };
+    };
+};
+# 23 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/outputs.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/outputs.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        out: outputs {
+            compatible = "zmk,behavior-outputs";
+            #binding-cells = <1>;
+            display-name = "Output Selection";
+        };
+    };
+};
+# 24 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/caps_word.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/caps_word.dtsi" 2 3 4
+
+
+/ {
+    behaviors {
+
+
+
+        caps_word: caps_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <((0x02 << 24 | (((0x07) << 16) | (0x2D)))) ((((0x07) << 16) | (0x2A))) ((((0x07) << 16) | (0x4C)))>;
+            display-name = "Caps Word";
+        };
+    };
+};
+# 25 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/key_repeat.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/key_repeat.dtsi" 2 3 4
+
+
+/ {
+    behaviors {
+
+
+
+        key_repeat: key_repeat {
+            compatible = "zmk,behavior-key-repeat";
+            #binding-cells = <0>;
+            usage-pages = <(0x07)>;
+            display-name = "Key Repeat";
+        };
+    };
+};
+# 26 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/backlight.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/backlight.dtsi" 2 3 4
+
+ / {
+    behaviors {
+
+
+
+
+        bl: bcklight {
+            compatible = "zmk,behavior-backlight";
+            #binding-cells = <2>;
+            display-name = "Backlight";
+        };
+    };
+};
+# 27 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/macros.dtsi" 1 3 4
+# 29 "/tmp/zmk-config/zmk/app/dts/behaviors/macros.dtsi" 3 4
+/ {
+    behaviors {
+        macro_tap: macro_tap {
+            compatible = "zmk,macro-control-mode-tap";
+            #binding-cells = <0>;
+        };
+
+        macro_press: macro_press {
+            compatible = "zmk,macro-control-mode-press";
+            #binding-cells = <0>;
+        };
+
+        macro_release: macro_release {
+            compatible = "zmk,macro-control-mode-release";
+            #binding-cells = <0>;
+        };
+
+        macro_tap_time: macro_tap_time {
+            compatible = "zmk,macro-control-tap-time";
+            #binding-cells = <1>;
+        };
+
+        macro_wait_time: macro_wait_time {
+            compatible = "zmk,macro-control-wait-time";
+            #binding-cells = <1>;
+        };
+
+        macro_pause_for_release: macro_pause_for_release {
+            compatible = "zmk,macro-pause-for-release";
+            #binding-cells = <0>;
+        };
+
+        macro_param_1to1: macro_param_1to1 {
+            compatible = "zmk,macro-param-1to1";
+            #binding-cells = <0>;
+        };
+
+        macro_param_1to2: macro_param_1to2 {
+            compatible = "zmk,macro-param-1to2";
+            #binding-cells = <0>;
+        };
+
+        macro_param_2to1: macro_param_2to1 {
+            compatible = "zmk,macro-param-2to1";
+            #binding-cells = <0>;
+        };
+
+        macro_param_2to2: macro_param_2to2 {
+            compatible = "zmk,macro-param-2to2";
+            #binding-cells = <0>;
+        };
+    };
+};
+# 28 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/soft_off.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/soft_off.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        soft_off: z_so_off {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            split-peripheral-off-on-press;
+        };
+    };
+};
+# 29 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/studio_unlock.dtsi" 1 3 4
+
+
+
+
+
+
+/ {
+    behaviors {
+        studio_unlock: studio_unlock {
+            compatible = "zmk,behavior-studio-unlock";
+            #binding-cells = <0>;
+            display-name = "Studio Unlock";
+        };
+    };
+};
+# 30 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_keys.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_key_press.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/behaviors.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_key_press.dtsi" 2 3 4
+
+/ {
+    behaviors {
+
+
+
+        mkp: mouse_key_press {
+            compatible = "zmk,behavior-mouse-key-press";
+            #binding-cells = <1>;
+            display-name = "Mouse Key Press";
+        };
+    };
+
+    mkp_input_listener: mkp_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&mkp>;
+    };
+};
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_keys.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_move.dtsi" 1 3 4
+
+
+
+
+
+
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/dt-bindings/input/input-event-codes.h" 1 3 4
+# 8 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_move.dtsi" 2 3 4
+
+/ {
+    behaviors {
+        /omit-if-no-ref/ mmv: mouse_move {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <0x00>;
+            y-input-code = <0x01>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+        };
+    };
+
+    mmv_input_listener: mmv_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&mmv>;
+    };
+};
+# 9 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_keys.dtsi" 2 3 4
+# 1 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_scroll.dtsi" 1 3 4
+# 10 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_scroll.dtsi" 3 4
+/ {
+    behaviors {
+        /omit-if-no-ref/ msc: mouse_scroll {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <0x06>;
+            y-input-code = <0x08>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <0>;
+        };
+    };
+
+    msc_input_listener: msc_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&msc>;
+    };
+};
+# 10 "/tmp/zmk-config/zmk/app/dts/behaviors/mouse_keys.dtsi" 2 3 4
+# 31 "/tmp/zmk-config/zmk/app/dts/behaviors.dtsi" 2 3 4
+# 6 "/tmp/zmk-config/config/cornix.keymap" 2
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/bt.h" 1 3 4
+# 7 "/tmp/zmk-config/config/cornix.keymap" 2
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/mouse.h" 1 3 4
+
+
+
+
+
+
+       
+
+# 1 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/pointing.h" 1 3 4
+
+
+
+
+
+       
+
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/dt-bindings/dt-util.h" 1 3 4
+# 19 "/tmp/zmk-config/zephyr/include/zephyr/dt-bindings/dt-util.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_macro.h" 1 3 4
+# 34 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_macro.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 1 3 4
+# 18 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_loops.h" 1 3 4
+# 1083 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_loops.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_listify.h" 1 3 4
+# 1084 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
+# 19 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 162 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal_is_eq.h" 1 3 4
+# 163 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 193 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal_util_inc.h" 1 3 4
+# 194 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+
+
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal_util_dec.h" 1 3 4
+# 197 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+
+
+# 1 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal_util_x2.h" 1 3 4
+# 200 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 35 "/tmp/zmk-config/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
+# 20 "/tmp/zmk-config/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
+# 9 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/pointing.h" 2 3 4
+# 10 "/tmp/zmk-config/zmk/app/include/dt-bindings/zmk/mouse.h" 2 3 4
+# 9 "/tmp/zmk-config/config/cornix.keymap" 2
+
+/ {
+    behaviors {
+        td200: tap_dance_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+        td250: tap_dance_250 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
+        lt200: layer_tap_200 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+        lt250: layer_tap_250 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
+        jis_minus_underscore: jis_minus_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ((((0x07) << 16) | (0x2D)))>, <&kp (0x02 << 24 | (((((0x07) << 16) | (0x87)))))>;
+            mods = <(0x02|0x20)>;
+        };
+        mac_minus_hankaku: mac_minus_hankaku {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ((((0x07) << 16) | (0x2D)))>, <&kp (0x01 << 24 | (((((0x07) << 16) | (0x33)))))>;
+            mods = <(0x01|0x10)>;
+        };
+        minus_slash: minus_slash {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp ((((0x07) << 16) | (0x56)))>, <&kp ((((0x07) << 16) | (0x54)))>;
+            tapping-term-ms = <200>;
+        };
+        plus_multiply: plus_multiply {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp ((((0x07) << 16) | (0x57)))>, <&kp ((((0x07) << 16) | (0x55)))>;
+            tapping-term-ms = <200>;
+        };
+    };
+
+    macros {
+        macro_space_n: macro_space_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp ((((0x07) << 16) | (0x2C))) &kp ((((0x07) << 16) | (0x11)))>;
+        };
+        macro_star_paren: macro_star_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp ((0x02 << 24 | (((0x07) << 16) | (0x25)))) &kp (((0x02 << 24 | (((0x07) << 16) | (0x26))))) &kp (((((0x07) << 16) | (0x50))))>;
+        };
+        macro_m28: macro_m28 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp (((((0x07) << 16) | (0x25)))) &kp (((((0x07) << 16) | (0x1E)))) &kp (((((0x07) << 16) | (0x38)))) &kp (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x1E)))) &kp (((((0x07) << 16) | (0x38)))) &kp (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x25))))>;
+        };
+        macro_m29: macro_m29 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp (0x02 << 24 | ((((0x07) << 16) | (0x04)))) &kp (((((0x07) << 16) | (0x22)))) &kp (((((0x07) << 16) | (0x1E)))) &kp (((((0x07) << 16) | (0x20)))) &kp (((((0x07) << 16) | (0x21))))>;
+        };
+        macro_m30: macro_m30 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp (0x02 << 24 | (((((0x07) << 16) | (0x1E))))) &kp ((((0x07) << 16) | (0x14))) &kp ((((0x07) << 16) | (0x04))) &kp ((((0x07) << 16) | (0x1D))) &kp (((((0x07) << 16) | (0x1F)))) &kp (((((0x07) << 16) | (0x1F)))) &kp (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x1E))))>;
+        };
+        macro_m31: macro_m31 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp (((((0x07) << 16) | (0x1E)))) &kp ((((0x07) << 16) | (0x14))) &kp ((((0x07) << 16) | (0x04))) &kp ((((0x07) << 16) | (0x1D))) &kp (((((0x07) << 16) | (0x1F)))) &kp (((((0x07) << 16) | (0x1F)))) &kp (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x1E))))>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+vial_combo_0 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x25)))))>;
+    key-positions = <7 8>;
+    layers = <1>;
+    timeout-ms = <50>;
+};
+vial_combo_1 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x25)))))>;
+    key-positions = <7 8>;
+    layers = <5>;
+    timeout-ms = <50>;
+};
+vial_combo_2 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x26)))))>;
+    key-positions = <8 9>;
+    layers = <1>;
+    timeout-ms = <50>;
+};
+vial_combo_3 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x26)))))>;
+    key-positions = <8 9>;
+    layers = <5>;
+    timeout-ms = <50>;
+};
+vial_combo_4 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x30)))))>;
+    key-positions = <19 20>;
+    layers = <1>;
+    timeout-ms = <50>;
+};
+vial_combo_5 {
+    bindings = <&kp (0x02 << 24 | (((((0x07) << 16) | (0x30)))))>;
+    key-positions = <19 20>;
+    layers = <5>;
+    timeout-ms = <50>;
+};
+vial_combo_6 {
+    bindings = <&kp (((((0x07) << 16) | (0x30))))>;
+    key-positions = <33 34>;
+    layers = <1>;
+    timeout-ms = <50>;
+};
+vial_combo_7 {
+    bindings = <&kp (((((0x07) << 16) | (0x30))))>;
+    key-positions = <33 34>;
+    layers = <5>;
+    timeout-ms = <50>;
+};
+vial_combo_8 {
+    bindings = <&kp (((((0x07) << 16) | (0x32))))>;
+    key-positions = <34 35>;
+    layers = <1>;
+    timeout-ms = <50>;
+};
+vial_combo_9 {
+    bindings = <&kp (((((0x07) << 16) | (0x32))))>;
+    key-positions = <34 35>;
+    layers = <5>;
+    timeout-ms = <50>;
+};
+
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+    layer_0 {
+        display-name = "Vial 0";
+        bindings = <
+&none &td200 (((((0x07) << 16) | (0x29)))) ((((0x07) << 16) | (0x14))) &kp ((((0x07) << 16) | (0x1A))) &kp ((((0x07) << 16) | (0x08))) &kp ((((0x07) << 16) | (0x15))) &kp ((((0x07) << 16) | (0x17))) &kp ((((0x07) << 16) | (0x1C))) &kp ((((0x07) << 16) | (0x18))) &kp ((((0x07) << 16) | (0x0C))) &kp ((((0x07) << 16) | (0x12))) &kp ((((0x07) << 16) | (0x13))) &none
+&none &td250 (0x08 << 24 | ((((0x07) << 16) | (0x04)))) ((((0x07) << 16) | (0x04))) &td250 (0x02 << 24 | (0x08 << 24 | (((((0x07) << 16) | (0x20)))))) ((((0x07) << 16) | (0x16))) &kp ((((0x07) << 16) | (0x07))) &kp ((((0x07) << 16) | (0x09))) &kp ((((0x07) << 16) | (0x0A))) &kp ((((0x07) << 16) | (0x0B))) &lt200 2 ((((0x07) << 16) | (0x0D))) &lt200 7 ((((0x07) << 16) | (0x0E))) &kp ((((0x07) << 16) | (0x0F))) &mac_minus_hankaku &none
+&none &td250 (0x08 << 24 | ((((0x07) << 16) | (0x1D)))) ((((0x07) << 16) | (0x1D))) &kp ((((0x07) << 16) | (0x1B))) &td250 (0x08 << 24 | ((((0x07) << 16) | (0x06)))) ((((0x07) << 16) | (0x06))) &td250 (0x08 << 24 | ((((0x07) << 16) | (0x19)))) ((((0x07) << 16) | (0x19))) &kp ((((0x07) << 16) | (0x05))) &kp ((((0x0C) << 16) | (0xE2))) &to 9 &kp ((((0x07) << 16) | (0x11))) &kp ((((0x07) << 16) | (0x10))) &kp ((((0x07) << 16) | (0x36))) &kp (((((0x07) << 16) | (0x37)))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x38))))) &none
+&to 2 &none &none &kp (((((0x07) << 16) | (0xE0)))) &lt200 1 ((((0x07) << 16) | (0x2C))) &td200 (((((0x07) << 16) | (0xE1)))) ((((0x07) << 16) | (0x2B))) &td200 ((((0x07) << 16) | (0x4C))) (((((0x07) << 16) | (0x2A)))) &lt250 2 (((((0x07) << 16) | (0x28)))) &kp (0x01 << 24 | ((((0x07) << 16) | (0x2C)))) &none &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_1 {
+        display-name = "Vial 1";
+        bindings = <
+&none &kp (0x02 << 24 | (((((0x07) << 16) | (0x1E))))) &none &none &none &none &kp (((((0x07) << 16) | (0x23)))) &kp (((((0x07) << 16) | (0x24)))) &kp (((((0x07) << 16) | (0x25)))) &kp (((((0x07) << 16) | (0x26)))) &td250 (0x02 << 24 | (((((0x07) << 16) | (0x22))))) ((((0x07) << 16) | (0x54))) &none
+&none &td250 (0x02 << 24 | (((((0x07) << 16) | (0x24))))) (0x02 << 24 | (((((0x07) << 16) | (0x1F))))) &kp (((((0x07) << 16) | (0x33)))) &kp ((((0x07) << 16) | (0x3C))) &kp ((((0x07) << 16) | (0x43))) &kp ((((0x07) << 16) | (0x44))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x20))))) &kp (((((0x07) << 16) | (0x21)))) &kp (((((0x07) << 16) | (0x22)))) &kp (((((0x07) << 16) | (0x23)))) &minus_slash &none
+&none &none &none &kp (0x02 << 24 | (((((0x07) << 16) | (0x33))))) &none &none &none &to 9 &kp (0x02 << 24 | ((((0x07) << 16) | (0x2D)))) &kp (((((0x07) << 16) | (0x1E)))) &kp (((((0x07) << 16) | (0x1F)))) &kp (((((0x07) << 16) | (0x20)))) &plus_multiply &none
+&none &none &none &none &none &none &td200 ((((0x07) << 16) | (0x4C))) (((((0x07) << 16) | (0x2A)))) &kp (((((0x07) << 16) | (0x28)))) &kp (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x37)))) &kp ((((0x07) << 16) | (0x55))) &none
+        >;
+        sensor-bindings = <&inc_dec_kp 0 0>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_2 {
+        display-name = "Vial 2";
+        bindings = <
+&none &none &none &kp (((((0x07) << 16) | (0x52)))) &none &none &none &none &kp (0x02 << 24 | (((((0x07) << 16) | (0x26))))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x27))))) &none &none
+&none &none &kp (((((0x07) << 16) | (0x50)))) &kp (((((0x07) << 16) | (0x51)))) &kp (((((0x07) << 16) | (0x4F)))) &none &none &none &kp (0x02 << 24 | (((((0x07) << 16) | (0x2F))))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x30))))) &none &none
+&none &none &none &none &none &none &none &none &none &none &kp (((((0x07) << 16) | (0x2F)))) &kp (((((0x07) << 16) | (0x30)))) &none &none
+&to 0 &none &none &msc ((-10) & 0xFFFF) &msc ((10) & 0xFFFF) &msc ((-10) & 0xFFFF) &none &none &msc ((-10) & 0xFFFF) &none &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp 0 (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_3 {
+        display-name = "Vial 3";
+        bindings = <
+&none &none &none &mmv ((-600) & 0xFFFF) &none &none &none &none &none &none &none &none
+&none &none &mmv (((-600) & 0xFFFF) << 16) &mmv ((600) & 0xFFFF) &mmv (((600) & 0xFFFF) << 16) &none &none &mkp ((1UL << (0))) &none &mkp ((1UL << (1))) &none &none
+&none &none &none &kp (((((0x07) << 16) | (0x1E)))) &none &none &none &none &none &none &none &none &none &none
+&none &none &none &msc ((-10) & 0xFFFF) &msc ((10) & 0xFFFF) &msc ((-10) & 0xFFFF) &none &kp (((((0x07) << 16) | (0x28)))) &none &none &none &to 4
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_4 {
+        display-name = "Vial 4";
+        bindings = <
+&kp (((((0x07) << 16) | (0x29)))) &td200 (((((0x07) << 16) | (0x29)))) ((((0x07) << 16) | (0x14))) &td250 (0x08 << 24 | ((((0x07) << 16) | (0x2B)))) ((((0x07) << 16) | (0x1A))) &kp ((((0x07) << 16) | (0x08))) &kp ((((0x07) << 16) | (0x15))) &kp ((((0x07) << 16) | (0x17))) &kp ((((0x07) << 16) | (0x1C))) &kp ((((0x07) << 16) | (0x18))) &lt250 8 ((((0x07) << 16) | (0x0C))) &kp ((((0x07) << 16) | (0x12))) &kp ((((0x07) << 16) | (0x13))) &kp ((((0x07) << 16) | (0x4C)))
+&kp (((((0x07) << 16) | (0xE1)))) &td250 (0x01 << 24 | ((((0x07) << 16) | (0x04)))) ((((0x07) << 16) | (0x04))) &td250 (((((0x07) << 16) | (0x46)))) ((((0x07) << 16) | (0x16))) &kp ((((0x07) << 16) | (0x07))) &kp ((((0x07) << 16) | (0x09))) &kp ((((0x07) << 16) | (0x0A))) &kp ((((0x07) << 16) | (0x0B))) &lt200 6 ((((0x07) << 16) | (0x0D))) &lt200 7 ((((0x07) << 16) | (0x0E))) &kp ((((0x07) << 16) | (0x0F))) &jis_minus_underscore &kp (((((0x07) << 16) | (0x87))))
+&none &td250 (0x01 << 24 | ((((0x07) << 16) | (0x1D)))) ((((0x07) << 16) | (0x1D))) &kp ((((0x07) << 16) | (0x1B))) &td250 (0x01 << 24 | ((((0x07) << 16) | (0x06)))) ((((0x07) << 16) | (0x06))) &td250 (0x01 << 24 | ((((0x07) << 16) | (0x19)))) ((((0x07) << 16) | (0x19))) &kp ((((0x07) << 16) | (0x05))) &kp ((((0x0C) << 16) | (0xE2))) &to 9 &kp ((((0x07) << 16) | (0x11))) &kp ((((0x07) << 16) | (0x10))) &kp ((((0x07) << 16) | (0x36))) &kp (((((0x07) << 16) | (0x37)))) &kp (((((0x07) << 16) | (0x38)))) &none
+&none &macro_space_n &kp (((((0x07) << 16) | (0xE2)))) &kp (((((0x07) << 16) | (0xE0)))) &lt200 5 ((((0x07) << 16) | (0x2C))) &td200 (((((0x07) << 16) | (0xE1)))) ((((0x07) << 16) | (0x2B))) &td200 ((((0x07) << 16) | (0x4C))) (((((0x07) << 16) | (0x2A)))) &kp (((((0x07) << 16) | (0x28)))) &kp ((((0x07) << 16) | (0x39))) &kp ((((0x07) << 16) | (0x40))) &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_5 {
+        display-name = "Vial 5";
+        bindings = <
+&none &kp (0x02 << 24 | (((((0x07) << 16) | (0x1E))))) &none &none &none &kp ((((0x07) << 16) | (0x4C))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x23))))) (((((0x07) << 16) | (0x23)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x24))))) (((((0x07) << 16) | (0x24)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x25))))) (((((0x07) << 16) | (0x25)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x26))))) (((((0x07) << 16) | (0x26)))) &td250 (0x02 << 24 | (((((0x07) << 16) | (0x22))))) ((((0x07) << 16) | (0x54))) &none
+&none &td250 (0x02 << 24 | (((((0x07) << 16) | (0x23))))) (((((0x07) << 16) | (0x2F)))) &kp (((((0x07) << 16) | (0x33)))) &kp ((((0x07) << 16) | (0x3C))) &kp ((((0x07) << 16) | (0x43))) &kp ((((0x07) << 16) | (0x44))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x20))))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x21))))) (((((0x07) << 16) | (0x21)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x22))))) (((((0x07) << 16) | (0x22)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x23))))) (((((0x07) << 16) | (0x23)))) &minus_slash &kp (((((0x07) << 16) | (0x31))))
+&none &none &none &kp (((((0x07) << 16) | (0x34)))) &kp (0x01 << 24 | ((((0x07) << 16) | (0x1D)))) &none &none &none &kp (0x02 << 24 | ((((0x07) << 16) | (0x2D)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x1E))))) (((((0x07) << 16) | (0x1E)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x1F))))) (((((0x07) << 16) | (0x1F)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x20))))) (((((0x07) << 16) | (0x20)))) &plus_multiply &none
+&none &none &none &none &none &none &td200 ((((0x07) << 16) | (0x4C))) (((((0x07) << 16) | (0x2A)))) &kp (((((0x07) << 16) | (0x28)))) &td250 (0x08 << 24 | (((((0x07) << 16) | (0x27))))) (((((0x07) << 16) | (0x27)))) &kp (((((0x07) << 16) | (0x37)))) &kp ((((0x07) << 16) | (0x55))) &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_6 {
+        display-name = "Vial 6";
+        bindings = <
+&none &none &none &kp (((((0x07) << 16) | (0x52)))) &none &none &none &none &kp (0x02 << 24 | (((((0x07) << 16) | (0x25))))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x26))))) &macro_star_paren &none
+&none &none &kp (((((0x07) << 16) | (0x50)))) &kp (((((0x07) << 16) | (0x51)))) &kp (((((0x07) << 16) | (0x4F)))) &none &none &none &kp (0x02 << 24 | (((((0x07) << 16) | (0x30))))) &kp (0x02 << 24 | (((((0x07) << 16) | (0x31))))) &none &none
+&none &none &none &none &none &none &none &none &none &none &kp (((((0x07) << 16) | (0x30)))) &kp (((((0x07) << 16) | (0x31)))) &none &none
+&none &none &none &none &none &none &td200 ((((0x07) << 16) | (0x4C))) (((((0x07) << 16) | (0x2A)))) &none &none &none &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_7 {
+        display-name = "Vial 7";
+        bindings = <
+&none &none &none &mmv ((-600) & 0xFFFF) &none &none &none &none &none &none &none &none
+&none &none &mmv (((-600) & 0xFFFF) << 16) &mmv ((600) & 0xFFFF) &mmv (((600) & 0xFFFF) << 16) &none &none &mkp ((1UL << (0))) &none &mkp ((1UL << (1))) &none &none
+&none &none &none &none &none &none &kp ((((0x0C) << 16) | (0xE2))) &to 9 &none &none &none &none &none &none
+&none &none &none &msc ((-10) & 0xFFFF) &msc ((10) & 0xFFFF) &msc ((-10) & 0xFFFF) &none &mo 10 &none &none &none &to 4
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_8 {
+        display-name = "Vial 8";
+        bindings = <
+&none &none &none &none &none &none &none &none &none &none &none &none
+&none &none &none &none &none &none &none &macro_m28 &none &none &none &none
+&none &none &none &none &none &none &kp ((((0x0C) << 16) | (0xE2))) &mkp ((1UL << (2))) &none &none &none &none &none &none
+&none &none &none &none &none &none &macro_m29 &macro_m30 &macro_m31 &none &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_9 {
+        display-name = "Vial 9";
+        bindings = <
+&none &none &bt 3 2 &none &none &none &none &none &bt 3 1 &none &none &bt 0 0
+&none &none &none &none &none &none &none &none &none &none &none &none
+&none &none &none &none &none &none &none &none &none &bt 3 0 &none &none &none &none
+&none &none &none &to 4 &to 4 &to 4 &to 0 &to 0 &to 0 &none &none &none
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    layer_10 {
+        display-name = "Mouse Boost";
+        bindings = <
+&trans &trans &trans &mmv ((-1200) & 0xFFFF) &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &mmv (((-1200) & 0xFFFF) << 16) &mmv ((1200) & 0xFFFF) &mmv (((1200) & 0xFFFF) << 16) &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+        >;
+        sensor-bindings = <&inc_dec_kp (((((0x0C) << 16) | (0xEA)))) (((((0x0C) << 16) | (0xE9))))>, <&inc_dec_kp (((((0x07) << 16) | (0x4B)))) (((((0x07) << 16) | (0x4E))))>;
+    };
+
+    };
+};
+# 0 "<command-line>" 2
+# 1 "/tmp/zmk-config/zmk/app/snippets/studio-rpc-usb-uart/studio-rpc-usb-uart.overlay" 1
+
+
+
+
+
+
+/ {
+    chosen {
+        zmk,studio-rpc-uart = &snippet_studio_rpc_usb_uart;
+    };
+};
+
+&zephyr_udc0 {
+    snippet_studio_rpc_usb_uart: snippet_studio_rpc_usb_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
+# 0 "<command-line>" 2
+# 1 "/tmp/zmk-config/zephyr/misc/empty_file.c"
