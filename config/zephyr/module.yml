@@ -1,6 +1,0 @@
----
-name: cornix-zmk-current-layout
-build:
-  settings:
-    board_root: .
-    snippet_root: .
