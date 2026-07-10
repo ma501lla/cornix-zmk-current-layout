@@ -8,6 +8,64 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+    macros {
+        macro_space_n: macro_space_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SPACE &kp N>;
+        };
+        macro_star_paren: macro_star_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
+        };
+        macro_paren_pair: macro_paren_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N9) &kp LS(N0) &kp LEFT>;
+        };
+        macro_brace_pair: macro_brace_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(LBKT) &kp LS(RBKT) &kp LEFT>;
+        };
+        macro_bracket_pair: macro_bracket_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
+        };
+        macro_angle_pair: macro_angle_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
+        };
+        macro_double_comma: macro_double_comma {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp COMMA &kp COMMA>;
+        };
+        macro_m28: macro_m28 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N8 &kp N1 &kp FSLH &kp N0 &kp N1 &kp FSLH &kp N0 &kp N8>;
+        };
+        macro_m29: macro_m29 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(A) &kp N5 &kp N1 &kp N3 &kp N4>;
+        };
+        macro_m30: macro_m30 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N1) &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
+        };
+        macro_m31: macro_m31 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N1 &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
+        };
+    };
+
     behaviors {
         td200: tap_dance_200 {
             compatible = "zmk,behavior-hold-tap";
@@ -96,64 +154,6 @@
             #binding-cells = <0>;
             bindings = <&comma_angle_single>, <&comma_angle_double>;
             tapping-term-ms = <200>;
-        };
-    };
-
-    macros {
-        macro_space_n: macro_space_n {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SPACE &kp N>;
-        };
-        macro_star_paren: macro_star_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
-        };
-        macro_paren_pair: macro_paren_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(N9) &kp LS(N0) &kp LEFT>;
-        };
-        macro_brace_pair: macro_brace_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(LBKT) &kp LS(RBKT) &kp LEFT>;
-        };
-        macro_bracket_pair: macro_bracket_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
-        };
-        macro_angle_pair: macro_angle_pair {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
-        };
-        macro_double_comma: macro_double_comma {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp COMMA &kp COMMA>;
-        };
-        macro_m28: macro_m28 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N8 &kp N1 &kp FSLH &kp N0 &kp N1 &kp FSLH &kp N0 &kp N8>;
-        };
-        macro_m29: macro_m29 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(A) &kp N5 &kp N1 &kp N3 &kp N4>;
-        };
-        macro_m30: macro_m30 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(N1) &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
-        };
-        macro_m31: macro_m31 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N1 &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
         };
     };
 
