@@ -1,0 +1,58 @@
+name: Debug ZMK build
+
+on:
+  push:
+    branches:
+      - codex/isolate-original-keymap-20260711
+  workflow_dispatch:
+
+jobs:
+  debug-left:
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:stable
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Prepare config
+        run: |
+          mkdir -p /tmp/zmk-config/config
+          cp -R config/* /tmp/zmk-config/config/
+          mkdir -p /tmp/zmk-debug
+
+      - name: West init
+        working-directory: /tmp/zmk-config
+        run: west init -l /tmp/zmk-config/config
+
+      - name: West update
+        working-directory: /tmp/zmk-config
+        run: west update --fetch-opt=--filter=tree:0
+
+      - name: West zephyr export
+        working-directory: /tmp/zmk-config
+        run: west zephyr-export
+
+      - name: Debug west build
+        working-directory: /tmp/zmk-config
+        shell: bash
+        run: |
+          set +e
+          west build -s zmk/app -d /tmp/zmk-build -b cornix_left@1.0.0//zmk -S "studio-rpc-usb-uart" -- -DZMK_CONFIG=/tmp/zmk-config/config > /tmp/zmk-debug/build-output.log 2>&1
+          status=$?
+          echo "$status" > /tmp/zmk-debug/build-status.txt
+          if [ -d /tmp/zmk-build ]; then
+            find /tmp/zmk-build -maxdepth 4 -type f \( -name '*.log' -o -name '.config' -o -name 'zephyr.dts' -o -name 'zephyr.dts.pre' \) -print -exec cp --parents {} /tmp/zmk-debug/ \; || true
+          fi
+          exit 0
+
+      - name: Upload debug logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: zmk-debug-left
+          path: /tmp/zmk-debug
+          if-no-files-found: warn
+
+      - name: Fail with build status
+        shell: bash
+        run: exit "$(cat /tmp/zmk-debug/build-status.txt)"
