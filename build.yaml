@@ -2,6 +2,7 @@
 # Use Cornix without dongle via hitsmaxft/zmk-keyboard-cornix.
 include:
   - board: cornix_left@1.0.0//zmk
+    shield: cornix_layer9_led_test
     snippet: studio-rpc-usb-uart
     artifact-name: cornix_left
 
