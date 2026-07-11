@@ -129,7 +129,7 @@ jobs:
           }
 
           build_one "cornix_left@1.0.0//zmk" cornix_left cornix_layer9_led_test studio-rpc-usb-uart
-          build_one "cornix_right@1.0.0//zmk" cornix_right
+          build_one "cornix_right@1.0.0//zmk" cornix_right cornix_layer9_led_test
           build_one "cornix_right@1.0.0//zmk" reset settings_reset
 
       - name: Upload firmware
