@@ -49,6 +49,12 @@
             bindings = <&kp MINUS>, <&kp LC(SEMI)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        bspc_del_shift_bspc: bspc_del_shift_bspc {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td200 DELETE BSPC>, <&kp BSPC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         minus_slash: minus_slash {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -246,7 +252,7 @@ vial_combo_9 {
 &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
 &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &kp F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
 &none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp LS(FSLH)  &none
-&to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
+&to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
@@ -257,7 +263,7 @@ vial_combo_9 {
 &none  &kp LS(N1)  &none  &none  &none  &none  &kp N6  &kp N7  &kp N8  &kp N9  &td250 LS(N5) KP_DIVIDE  &none
 &none  &td250 LS(N7) LS(N2)  &kp SEMI  &kp F3  &kp F10  &kp F11  &kp LS(N3)  &kp N4  &kp N5  &kp N6  &minus_slash  &none
 &none  &none  &none  &kp LS(SEMI)  &none  &none  &none  &to 9  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
+&none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
         sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp PG_UP PG_DN>;
     };
@@ -290,7 +296,7 @@ vial_combo_9 {
 &kp ESC  &td200 ESC Q  &td250 LG(TAB) W  &kp E  &kp R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
 &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &kp F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
 &none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp FSLH  &none
-&none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
+&none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
@@ -301,7 +307,7 @@ vial_combo_9 {
 &none  &kp LS(N1)  &none  &none  &none  &kp DELETE  &td250 LG(N6) N6  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &td250 LS(N5) KP_DIVIDE  &none
 &none  &td250 LS(N6) LBKT  &kp SEMI  &kp F3  &kp F10  &kp F11  &kp LS(N3)  &td250 LG(N4) N4  &td250 LG(N5) N5  &td250 LG(N6) N6  &minus_slash  &kp BSLH
 &none  &none  &none  &kp SQT  &kp LC(Z)  &none  &none  &none  &kp LS(MINUS)  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
+&none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
@@ -312,7 +318,7 @@ vial_combo_9 {
 &none  &none  &none  &kp UP  &none  &none  &none  &none  &win_paren_pair_td  &kp LS(N9)  &macro_star_paren  &none
 &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &win_brace_pair_td  &kp LS(BSLH)  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &win_bracket_pair_td  &kp BSLH  &none  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &none  &none  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
