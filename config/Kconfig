@@ -1,0 +1,6 @@
+config CORNIX_LAYER9_LED_TEST
+    bool "Cornix layer 9 LED test"
+    depends on LED_STRIP
+    default n
+    help
+      Lights the local Cornix WS2812 LEDs while layer 9 is active.
