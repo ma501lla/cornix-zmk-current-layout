@@ -7,6 +7,7 @@ include:
     artifact-name: cornix_left
 
   - board: cornix_right@1.0.0//zmk
+    shield: cornix_layer9_led_test
     artifact-name: cornix_right
 
   - board: cornix_right@1.0.0//zmk
