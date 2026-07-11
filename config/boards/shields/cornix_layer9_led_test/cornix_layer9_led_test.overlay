@@ -15,4 +15,8 @@
         status-ws2812 = &led_strip;
         cornix-led-power = &cornix_led_power;
     };
+
+    chosen {
+        widget,rgb = &led_strip;
+    };
 };
