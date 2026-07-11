@@ -22,12 +22,15 @@
 
 #define TARGET_LAYER 9
 #define LED_COUNT 2
-#define POWER_SETTLE_MS 50
+#define POWER_SETTLE_MS 120
+#define STARTUP_FLASH_MS 1800
+#define STARTUP_DELAY_MS 700
 
 static const struct device *const led_dev = DEVICE_DT_GET(LED_NODE);
 static const struct gpio_dt_spec led_power = GPIO_DT_SPEC_GET(LED_POWER_NODE, control_gpios);
 
 static struct k_work_delayable show_work;
+static struct k_work_delayable startup_work;
 static bool layer9_active;
 static bool led_active;
 
@@ -64,7 +67,28 @@ static void show_work_handler(struct k_work *work) {
     }
 
     led_active = true;
-    write_pixels(0, 0, 12);
+    write_pixels(24, 24, 24);
+}
+
+static void startup_work_handler(struct k_work *work) {
+    if (!device_is_ready(led_dev)) {
+        return;
+    }
+
+    set_led_power(true);
+    k_msleep(POWER_SETTLE_MS);
+    led_active = true;
+    write_pixels(32, 0, 0);
+    k_msleep(STARTUP_FLASH_MS);
+
+    if (layer9_active) {
+        write_pixels(24, 24, 24);
+    } else {
+        write_pixels(0, 0, 0);
+        k_msleep(2);
+        led_active = false;
+        set_led_power(false);
+    }
 }
 
 static int cornix_layer9_led_listener(const zmk_event_t *eh) {
@@ -88,10 +112,13 @@ static int cornix_layer9_led_listener(const zmk_event_t *eh) {
 
 static int cornix_layer9_led_init(void) {
     k_work_init_delayable(&show_work, show_work_handler);
+    k_work_init_delayable(&startup_work, startup_work_handler);
 
     if (device_is_ready(led_power.port)) {
         gpio_pin_configure_dt(&led_power, GPIO_OUTPUT_INACTIVE);
     }
+
+    k_work_schedule(&startup_work, K_MSEC(STARTUP_DELAY_MS));
 
     return 0;
 }
