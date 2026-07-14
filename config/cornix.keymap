@@ -124,16 +124,6 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp SPACE &kp N>;
         };
-        macro_bt_mac: macro_bt_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&bt BT_SEL 0>, <&to 0>;
-        };
-        macro_bt_win: macro_bt_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&bt BT_SEL 1>, <&to 4>;
-        };
         macro_shift_space_n: macro_shift_space_n {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -257,22 +247,6 @@ vial_combo_9 {
     key-positions = <34 35>;
     layers = <5>;
     timeout-ms = <50>;
-};
-bt_mac_combo {
-    bindings = <&macro_bt_mac>;
-    key-positions = <0 12>;
-    layers = <0 4>;
-    timeout-ms = <200>;
-    require-prior-idle-ms = <2000>;
-    slow-release;
-};
-bt_win_combo {
-    bindings = <&macro_bt_win>;
-    key-positions = <0 12 24>;
-    layers = <0 4>;
-    timeout-ms = <200>;
-    require-prior-idle-ms = <2000>;
-    slow-release;
 };
 
     };
