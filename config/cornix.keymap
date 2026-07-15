@@ -73,6 +73,12 @@
             bindings = <&kp LS(N5)>, <&kp LS(BSLH)>;
             tapping-term-ms = <200>;
         };
+        angle_pair_td: angle_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&macro_angle_pair>;
+            tapping-term-ms = <200>;
+        };
         shift_space_n_hold: shift_space_n_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -128,6 +134,11 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_press>, <&kp LEFT_SHIFT>, <&macro_tap>, <&kp SPACE>, <&kp N>, <&macro_release>, <&kp LEFT_SHIFT>;
+        };
+        macro_angle_pair: macro_angle_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
         };
         macro_star_paren: macro_star_paren {
             compatible = "zmk,behavior-macro";
@@ -258,7 +269,7 @@ vial_combo_9 {
         bindings = <
     &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
     &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
-&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
+&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -302,7 +313,7 @@ vial_combo_9 {
         bindings = <
     &kp ESC  &td200 ESC Q  &kp W  &td250 LG(TAB) E  &shift_space_n_hold 0 R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
     &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
-&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
+&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp FSLH  &none
 &none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -313,7 +324,7 @@ vial_combo_9 {
         bindings = <
     &none  &kp LS(N1)  &none  &none  &kp F9  &kp F7  &td250 LG(N6) N6  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &percent_pipe_td  &none
 &none  &td250 LS(N6) LBKT  &kp SEMI  &kp F3  &kp F10  &kp F11  &kp LS(N3)  &td250 LG(N4) N4  &td250 LG(N5) N5  &td250 LG(N6) N6  &minus_slash  &kp BSLH
-&none  &none  &none  &kp SQT  &kp LC(Z)  &none  &none  &none  &kp EQUAL  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
+&none  &none  &none  &kp SQT  &kp LC(Z)  &none  &none  &none  &kp LS(MINUS)  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
