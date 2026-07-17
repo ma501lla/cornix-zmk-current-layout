@@ -259,6 +259,30 @@ vial_combo_9 {
     layers = <5>;
     timeout-ms = <50>;
 };
+num_layer_mac_enter {
+    bindings = <&to 11>;
+    key-positions = <14 15 16>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+num_layer_win_enter {
+    bindings = <&to 12>;
+    key-positions = <14 15 16>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
+num_layer_mac_exit {
+    bindings = <&to 0>;
+    key-positions = <14 15 16>;
+    layers = <11>;
+    timeout-ms = <80>;
+};
+num_layer_win_exit {
+    bindings = <&to 4>;
+    key-positions = <14 15 16>;
+    layers = <12>;
+    timeout-ms = <80>;
+};
 
     };
 
@@ -381,6 +405,28 @@ vial_combo_9 {
 &trans  &trans  &mmv MOVE_X(-1200)  &mmv MOVE_Y(1200)  &mmv MOVE_X(1200)  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_11 {
+        display-name = "Mac Num";
+        bindings = <
+&none  &none  &kp N7  &kp N8  &kp N9  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp N4  &kp N5  &kp N6  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp N1  &kp N2  &kp N3  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp N0  &none  &none  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_12 {
+        display-name = "Win Num";
+        bindings = <
+&none  &none  &kp N7  &kp N8  &kp N9  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp N4  &kp N5  &kp N6  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp N1  &kp N2  &kp N3  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp N0  &none  &none  &none  &none  &none  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
