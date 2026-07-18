@@ -67,6 +67,12 @@
             bindings = <&kp KP_PLUS>, <&kp KP_MULTIPLY>;
             tapping-term-ms = <200>;
         };
+        jis_single_double_quote: jis_single_double_quote {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N7)>, <&kp LS(N2)>;
+            tapping-term-ms = <200>;
+        };
         hash_plus_multiply_hold: hash_plus_multiply_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -351,7 +357,7 @@ bt_layer_win_enter {
     layer_1 {
         display-name = "Vial 1";
         bindings = <
-    &none  &kp LS(N1)  &none  &none  &kp F9  &kp F7  &kp EQUAL  &kp N7  &kp N8  &kp N9  &percent_pipe_td  &none
+    &none  &jis_single_double_quote  &none  &kp LS(N1)  &kp F9  &kp F7  &kp EQUAL  &kp N7  &kp N8  &kp N9  &percent_pipe_td  &none
 &none  &td250 LS(N7) LS(N2)  &kp SEMI  &kp F3  &kp F10  &kp F11  &hash_plus_multiply_hold 0 0  &kp N4  &kp N5  &kp N6  &minus_slash  &none
 &none  &none  &none  &kp LS(SEMI)  &none  &td250 FSLH BSLH  &none  &none  &kp DOT  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
@@ -395,7 +401,7 @@ bt_layer_win_enter {
     layer_5 {
         display-name = "Vial 5";
         bindings = <
-    &none  &kp LS(N1)  &none  &none  &kp F9  &kp F7  &kp LS(MINUS)  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &percent_pipe_td  &none
+    &none  &jis_single_double_quote  &none  &kp LS(N1)  &kp F9  &kp F7  &kp LS(MINUS)  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &percent_pipe_td  &none
 &none  &td250 LS(N6) LBKT  &kp SEMI  &kp F3  &kp F10  &kp F11  &hash_plus_multiply_hold 0 0  &td250 LG(N4) N4  &td250 LG(N5) N5  &td250 LG(N6) N6  &minus_slash  &kp BSLH
 &none  &none  &none  &kp SQT  &kp LC(Z)  &td250 FSLH INT3  &none  &none  &kp DOT  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
