@@ -342,7 +342,7 @@ bt_layer_win_enter {
         bindings = <
     &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
     &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
-&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp LS(FSLH)  &none
+&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -353,7 +353,7 @@ bt_layer_win_enter {
         bindings = <
     &none  &kp LS(N1)  &none  &none  &kp F9  &kp F7  &kp EQUAL  &kp N7  &kp N8  &kp N9  &percent_pipe_td  &none
 &none  &td250 LS(N7) LS(N2)  &kp SEMI  &kp F3  &kp F10  &kp F11  &hash_plus_multiply_hold 0 0  &kp N4  &kp N5  &kp N6  &minus_slash  &none
-&none  &none  &none  &kp LS(SEMI)  &none  &none  &none  &to 9  &kp DOT  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
+&none  &none  &none  &kp LS(SEMI)  &none  &none  &none  &none  &kp DOT  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -386,7 +386,7 @@ bt_layer_win_enter {
         bindings = <
     &kp ESC  &td200 ESC Q  &kp W  &td250 LG(TAB) E  &shift_space_n_hold 0 R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
     &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
-&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp FSLH  &none
+&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp FSLH  &none
 &none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -419,7 +419,7 @@ bt_layer_win_enter {
         bindings = <
 &none  &none  &none  &mmv MOVE_UP  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none  &mkp LCLK  &none  &mkp RCLK  &none  &none
-&none  &none  &none  &none  &none  &none  &kp C_MUTE  &to 9  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &kp C_MUTE  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &none  &none  &none  &to 4
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -439,10 +439,10 @@ bt_layer_win_enter {
     layer_9 {
         display-name = "Vial 9";
         bindings = <
-&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_mac_2  &macro_bt_win  &macro_bt_mac  &none  &none  &none  &none  &none  &bt BT_CLR
+&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_mac_2  &macro_bt_win  &macro_bt_mac  &none  &none  &none  &none  &none  &kp DELETE
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &to 4  &to 4  &to 4  &to 0  &to 0  &to 0  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
