@@ -258,7 +258,6 @@ vial_combo_3 {
     bindings = <&kp LS(N9)>;
     key-positions = <8 9>;
     layers = <5>;
-    timeout-ms = <50>;
 };
 vial_combo_4 {
     bindings = <&kp LS(RBKT)>;
@@ -439,7 +438,7 @@ bt_layer_win_enter {
     layer_9 {
         display-name = "Vial 9";
         bindings = <
-&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_mac_2  &macro_bt_win  &macro_bt_mac  &none  &none  &none  &none  &none  &kp DELETE
+&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_mac_2  &macro_bt_win  &macro_bt_mac  &none  &none  &none  &none  &none  &bt BT_CLR
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
