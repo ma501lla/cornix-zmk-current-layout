@@ -142,6 +142,31 @@
             #binding-cells = <0>;
             bindings = <&macro_press>, <&kp LEFT_SHIFT>, <&macro_tap>, <&kp SPACE>, <&kp N>, <&macro_release>, <&kp LEFT_SHIFT>;
         };
+        macro_bt_mac: macro_bt_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 0 &to 0>;
+        };
+        macro_bt_win: macro_bt_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 1 &to 4>;
+        };
+        macro_bt_mac_2: macro_bt_mac_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 2 &to 0>;
+        };
+        macro_bt_mac_3: macro_bt_mac_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 3 &to 0>;
+        };
+        macro_bt_mac_4: macro_bt_mac_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 4 &to 0>;
+        };
         macro_angle_pair: macro_angle_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -295,6 +320,18 @@ num_layer_win_exit {
     layers = <12>;
     timeout-ms = <80>;
 };
+bt_layer_mac_enter {
+    bindings = <&to 9>;
+    key-positions = <0 12 24 38>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+bt_layer_win_enter {
+    bindings = <&to 9>;
+    key-positions = <0 12 24 38>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
 
     };
 
@@ -402,9 +439,9 @@ num_layer_win_exit {
     layer_9 {
         display-name = "Vial 9";
         bindings = <
-&none  &none  &bt BT_SEL 2  &none  &none  &none  &none  &none  &bt BT_SEL 1  &none  &none  &bt BT_CLR
+&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_mac_2  &macro_bt_win  &macro_bt_mac  &none  &none  &none  &none  &none  &bt BT_CLR
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &to 4  &to 4  &to 4  &to 0  &to 0  &to 0  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
