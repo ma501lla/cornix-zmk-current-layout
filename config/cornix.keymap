@@ -308,6 +308,18 @@ vial_combo_9 {
     layers = <5>;
     timeout-ms = <50>;
 };
+thumb_caps_lock_mac {
+    bindings = <&kp CAPSLOCK>;
+    key-positions = <41 46>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+thumb_caps_lock_win {
+    bindings = <&kp CAPSLOCK>;
+    key-positions = <41 46>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
 num_layer_mac_enter {
     bindings = <&to 11>;
     key-positions = <14 15 16>;
