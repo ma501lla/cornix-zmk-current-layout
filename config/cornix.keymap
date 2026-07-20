@@ -406,7 +406,7 @@ bt_layer_win_enter {
     &kp ESC  &td200 ESC Q  &kp W  &td250 LG(TAB) E  &shift_space_n_hold 0 R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
     &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
 &none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &angle_pair_td  &kp DOT  &kp FSLH  &none
-&none  &none  &kp LALT  &td250 LCTRL INT5  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &kp ENTER  &kp INT4  &kp F7  &none  &none
+&none  &none  &kp LALT  &td250 LCTRL LANG2  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &kp ENTER  &kp LANG1  &kp F7  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
