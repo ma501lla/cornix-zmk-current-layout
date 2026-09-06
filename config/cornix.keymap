@@ -341,13 +341,13 @@ num_layer_win_exit {
 };
 bt_layer_mac_enter {
     bindings = <&to 9>;
-    key-positions = <0 12 24 38>;
+    key-positions = <41 42 43>;
     layers = <0>;
     timeout-ms = <80>;
 };
 bt_layer_win_enter {
     bindings = <&to 9>;
-    key-positions = <0 12 24 38>;
+    key-positions = <41 42 43>;
     layers = <4>;
     timeout-ms = <80>;
 };
