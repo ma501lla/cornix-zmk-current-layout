@@ -366,7 +366,7 @@ bt_layer_win_enter {
         display-name = "Vial 0";
         bindings = <
     &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
-    &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
+    &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &lt200 13 D  &td250 LC(F) F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
 &none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &td250 LCTRL LANG2  &lt200 1 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LANG1  &none  &none  &none
         >;
@@ -410,7 +410,7 @@ bt_layer_win_enter {
         display-name = "Vial 4";
         bindings = <
     &kp ESC  &td200 ESC Q  &kp W  &td250 LG(TAB) E  &shift_space_n_hold 0 R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
-    &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
+    &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &lt200 14 D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
 &none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
 &none  &none  &kp LALT  &td250 LCTRL LANG2  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &ctrl_enter_alt_enter  &kp LANG1  &kp F7  &none  &none
         >;
@@ -501,6 +501,28 @@ bt_layer_win_enter {
 &none  &minus_slash  &kp N4  &kp N5  &kp N6  &plus_multiply  &none  &none  &none  &none  &none  &none
 &none  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &kp DOT  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &kp N0  &kp ENTER  &kp BSPC  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_13 {
+        display-name = "Mac Nav";
+        bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp LS(LG(LBKT))  &none  &kp LS(LG(RBKT))  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LG(LBKT)  &kp LG(RBKT)  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_14 {
+        display-name = "Win Nav";
+        bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &kp LS(LC(TAB))  &none  &kp LC(TAB)  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LA(LEFT)  &kp LA(RIGHT)  &none  &none  &none  &none  &none  &none
         >;
         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
