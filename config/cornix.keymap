@@ -153,6 +153,13 @@
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             tap-ms = <20>;
         };
+        scroll_page_hold: scroll_page_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&msc>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
     };
 
     macros {
@@ -277,6 +284,7 @@ vial_combo_3 {
     bindings = <&kp LS(N9)>;
     key-positions = <8 9>;
     layers = <5>;
+    timeout-ms = <50>;
 };
 vial_combo_4 {
     bindings = <&kp LS(RBKT)>;
@@ -395,7 +403,7 @@ bt_layer_win_enter {
 &none  &none  &none  &kp UP  &none  &none  &none  &none  &mac_paren_pair_td  &kp LS(N0)  &none  &none
 &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &mac_brace_pair_td  &kp LS(RBKT)  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &mac_bracket_pair_td  &kp RBKT  &none  &none
-&to 0  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &msc SCRL_DOWN  &none  &none  &none
+&to 0  &none  &none  &none  &scroll_page_hold SCRL_DOWN PG_DN  &scroll_page_hold SCRL_UP PG_UP  &none  &none  &msc SCRL_DOWN  &none  &none  &none
         >;
         sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
@@ -439,7 +447,7 @@ bt_layer_win_enter {
 &none  &none  &none  &kp UP  &none  &none  &none  &none  &win_paren_pair_td  &kp LS(N9)  &macro_star_paren  &none
 &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &win_brace_pair_td  &kp LS(BSLH)  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &win_bracket_pair_td  &kp BSLH  &none  &none
-&none  &none  &none  &none  &kp PG_DN  &kp PG_UP  &bspc_del_shift_bspc  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &scroll_page_hold SCRL_DOWN PG_DN  &scroll_page_hold SCRL_UP PG_UP  &bspc_del_shift_bspc  &none  &none  &none  &none  &none
         >;
         sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
