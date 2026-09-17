@@ -35,22 +35,8 @@ jobs:
               "&scroll_page_hold SCRL_UP PG_DN  &scroll_page_hold SCRL_DOWN PG_UP",
           )
           if "mouse_boost_click: mouse_boost_click" not in text:
-              anchor = """        scroll_page_hold: scroll_page_hold {
-            compatible = \"zmk,behavior-hold-tap\";
-            #binding-cells = <2>;
-            bindings = <&msc>, <&kp>;
-            flavor = \"tap-preferred\";
-            tapping-term-ms = <220>;
-        };
-"""
-              addition = anchor + """        mouse_boost_click: mouse_boost_click {
-            compatible = \"zmk,behavior-hold-tap\";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&mkp>;
-            flavor = \"balanced\";
-            tapping-term-ms = <180>;
-        };
-"""
+              anchor = "        scroll_page_hold: scroll_page_hold {\n            compatible = \"zmk,behavior-hold-tap\";\n            #binding-cells = <2>;\n            bindings = <&msc>, <&kp>;\n            flavor = \"tap-preferred\";\n            tapping-term-ms = <220>;\n        };\n"
+              addition = anchor + "        mouse_boost_click: mouse_boost_click {\n            compatible = \"zmk,behavior-hold-tap\";\n            #binding-cells = <2>;\n            bindings = <&mo>, <&mkp>;\n            flavor = \"balanced\";\n            tapping-term-ms = <180>;\n        };\n"
               text = text.replace(anchor, addition)
           layer_start = text.index("    layer_7 {")
           layer_end = text.index("    layer_8 {", layer_start)
