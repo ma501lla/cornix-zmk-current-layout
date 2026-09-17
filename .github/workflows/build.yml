@@ -26,6 +26,16 @@ jobs:
         run: |
           mkdir -p "${ZMK_CONFIG_DIR}"
           cp -R "${SOURCE_CONFIG_DIR}"/* "${ZMK_CONFIG_DIR}/"
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("/tmp/zmk-config/config/cornix.keymap")
+          text = path.read_text()
+          text = text.replace(
+              "&scroll_page_hold SCRL_DOWN PG_DN  &scroll_page_hold SCRL_UP PG_UP",
+              "&scroll_page_hold SCRL_UP PG_DN  &scroll_page_hold SCRL_DOWN PG_UP",
+          )
+          path.write_text(text)
+          PY
           cd "${ZMK_BUILD_BASE}"
           west init -l "${ZMK_CONFIG_DIR}"
           west update --fetch-opt=--filter=tree:0
