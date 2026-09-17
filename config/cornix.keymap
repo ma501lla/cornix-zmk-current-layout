@@ -147,6 +147,12 @@
             bindings = <&kp RBKT>, <&macro_win_bracket_pair>;
             tapping-term-ms = <200>;
         };
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
+        };
     };
 
     macros {
@@ -271,7 +277,6 @@ vial_combo_3 {
     bindings = <&kp LS(N9)>;
     key-positions = <8 9>;
     layers = <5>;
-    timeout-ms = <50>;
 };
 vial_combo_4 {
     bindings = <&kp LS(RBKT)>;
@@ -370,7 +375,7 @@ bt_layer_win_enter {
 &none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
 &to 2  &none  &none  &td250 LCTRL LANG2  &lt200 1 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LANG1  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_1 {
@@ -381,7 +386,7 @@ bt_layer_win_enter {
 &none  &none  &none  &kp LS(SEMI)  &none  &td250 FSLH BSLH  &none  &none  &kp DOT  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_2 {
@@ -392,7 +397,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &mac_bracket_pair_td  &kp RBKT  &none  &none
 &to 0  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &msc SCRL_DOWN  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_3 {
@@ -403,7 +408,7 @@ bt_layer_win_enter {
 &none  &none  &none  &kp N1  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_4 {
@@ -414,7 +419,7 @@ bt_layer_win_enter {
 &none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
 &none  &none  &kp LALT  &td250 LCTRL LANG2  &lt200 5 SPACE  &td200 LSHIFT TAB  &bspc_del_shift_bspc  &ctrl_enter_alt_enter  &kp LANG1  &kp F7  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_5 {
@@ -425,7 +430,7 @@ bt_layer_win_enter {
 &none  &none  &none  &kp SQT  &kp LC(Z)  &td250 FSLH INT3  &none  &none  &kp DOT  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
 &none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_6 {
@@ -436,7 +441,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &win_bracket_pair_td  &kp BSLH  &none  &none
 &none  &none  &none  &none  &kp PG_DN  &kp PG_UP  &bspc_del_shift_bspc  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_7 {
@@ -447,7 +452,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_8 {
@@ -458,7 +463,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &mkp MCLK  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &macro_m29  &macro_m30  &macro_m31  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_9 {
@@ -469,7 +474,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_10 {
@@ -480,7 +485,7 @@ bt_layer_win_enter {
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_11 {
@@ -491,7 +496,7 @@ bt_layer_win_enter {
 &none  &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp DOT  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &kp N0  &kp ENTER  &kp BSPC  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_12 {
@@ -502,7 +507,7 @@ bt_layer_win_enter {
 &none  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &kp DOT  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &kp N0  &kp ENTER  &kp BSPC  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_13 {
@@ -513,7 +518,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &kp LS(TAB)  &kp TAB  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_14 {
@@ -524,7 +529,7 @@ bt_layer_win_enter {
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &kp LS(TAB)  &kp TAB  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_DN C_VOL_UP>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     };
