@@ -39,6 +39,13 @@ jobs:
                   f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <1>;',
                   f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <2>;'
               )
+          for old, new in {
+              'LC(LA(LEFT))': 'LC(GLOBE(LEFT))',
+              'LC(LA(RIGHT))': 'LC(GLOBE(RIGHT))',
+              'LC(LA(UP))': 'LC(GLOBE(UP))',
+              'LC(LA(DOWN))': 'LC(GLOBE(DOWN))',
+          }.items():
+              text = text.replace(old, new)
           text = text.replace('bindings = <&kp LG(V)>, <&kp>;', 'bindings = <&shift_win_clipboard>, <&kp>;')
           if 'shift_win_clipboard: shift_win_clipboard' not in text:
               insert = (
