@@ -39,12 +39,17 @@ jobs:
                   f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <1>;',
                   f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <2>;'
               )
-          for old, new in {
-              'LC(LA(LEFT))': 'LC(GLOBE(LEFT))',
-              'LC(LA(RIGHT))': 'LC(GLOBE(RIGHT))',
-              'LC(LA(UP))': 'LC(GLOBE(UP))',
-              'LC(LA(DOWN))': 'LC(GLOBE(DOWN))',
-          }.items():
+          mac_globe_replacements = {
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(LEFT))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp LEFT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(RIGHT))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp RIGHT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(UP))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp UP>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(DOWN))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp DOWN>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(GLOBE(LEFT))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp LEFT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(GLOBE(RIGHT))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp RIGHT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(GLOBE(UP))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp UP>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+              '<&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(GLOBE(DOWN))>, <&macro_press &kp LEFT_SHIFT>': '<&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp DOWN>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>',
+          }
+          for old, new in mac_globe_replacements.items():
               text = text.replace(old, new)
           text = text.replace('bindings = <&kp LG(V)>, <&kp>;', 'bindings = <&shift_win_clipboard>, <&kp>;')
           if 'shift_win_clipboard: shift_win_clipboard' not in text:
