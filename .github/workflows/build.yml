@@ -26,6 +26,34 @@ jobs:
         run: |
           mkdir -p "${ZMK_CONFIG_DIR}"
           cp -R "${SOURCE_CONFIG_DIR}"/* "${ZMK_CONFIG_DIR}/"
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('/tmp/zmk-config/config/cornix.keymap')
+          text = path.read_text()
+          for name in [
+              'mac_tile_left_hold', 'mac_tile_up_hold', 'mac_tile_down_hold', 'mac_tile_right_hold',
+              'win_tile_left_hold', 'win_tile_up_hold', 'win_tile_down_hold', 'win_tile_right_hold',
+              'win_clipboard_hold',
+          ]:
+              text = text.replace(
+                  f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <1>;',
+                  f'{name}: {name} {{\n            compatible = "zmk,behavior-hold-tap";\n            #binding-cells = <2>;'
+              )
+          replacements = {
+              '&mac_tile_up_hold E': '&mac_tile_up_hold 0 E',
+              '&mac_tile_left_hold S': '&mac_tile_left_hold 0 S',
+              '&mac_tile_down_hold D': '&mac_tile_down_hold 0 D',
+              '&mac_tile_right_hold F': '&mac_tile_right_hold 0 F',
+              '&win_tile_up_hold E': '&win_tile_up_hold 0 E',
+              '&win_tile_left_hold S': '&win_tile_left_hold 0 S',
+              '&win_tile_down_hold D': '&win_tile_down_hold 0 D',
+              '&win_tile_right_hold F': '&win_tile_right_hold 0 F',
+              '&win_clipboard_hold V': '&win_clipboard_hold 0 V',
+          }
+          for old, new in replacements.items():
+              text = text.replace(old, new)
+          path.write_text(text)
+          PY
           cd "${ZMK_BUILD_BASE}"
           west init -l "${ZMK_CONFIG_DIR}"
           west update --fetch-opt=--filter=tree:0
