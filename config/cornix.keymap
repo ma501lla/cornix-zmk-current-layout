@@ -176,64 +176,64 @@
         };
         mac_tile_left_hold: mac_tile_left_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_mac_left>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         mac_tile_up_hold: mac_tile_up_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_mac_up>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         mac_tile_down_hold: mac_tile_down_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_mac_down>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         mac_tile_right_hold: mac_tile_right_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_mac_right>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         win_tile_left_hold: win_tile_left_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_win_left>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         win_tile_up_hold: win_tile_up_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_win_up>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         win_tile_down_hold: win_tile_down_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_win_down>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         win_tile_right_hold: win_tile_right_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             bindings = <&shift_tile_win_right>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
         win_clipboard_hold: win_clipboard_hold {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            bindings = <&kp LG(V)>, <&kp>;
+            #binding-cells = <2>;
+            bindings = <&shift_win_clipboard>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
         };
@@ -248,9 +248,7 @@
             bindings
                 = <&macro_param_1to1>
                 , <&macro_press &mo MACRO_PLACEHOLDER>
-                , <&macro_press &kp LEFT_SHIFT>
                 , <&macro_pause_for_release>
-                , <&macro_release &kp LEFT_SHIFT>
                 , <&macro_param_1to1>
                 , <&macro_release &mo MACRO_PLACEHOLDER>
                 ;
@@ -260,56 +258,63 @@
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(LEFT))>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp LEFT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>;
         };
         shift_tile_mac_up: shift_tile_mac_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(UP))>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp UP>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>;
         };
         shift_tile_mac_down: shift_tile_mac_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(DOWN))>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp DOWN>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>;
         };
         shift_tile_mac_right: shift_tile_mac_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LC(LA(RIGHT))>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp RIGHT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>;
         };
         shift_tile_win_left: shift_tile_win_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(LEFT)>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_tap &kp LG(LEFT)>;
         };
         shift_tile_win_up: shift_tile_win_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(UP)>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_tap &kp LG(UP)>;
         };
         shift_tile_win_down: shift_tile_win_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(DOWN)>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_tap &kp LG(DOWN)>;
         };
         shift_tile_win_right: shift_tile_win_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
             tap-ms = <20>;
-            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(RIGHT)>, <&macro_press &kp LEFT_SHIFT>;
+            bindings = <&macro_tap &kp LG(RIGHT)>;
+        };
+        shift_win_clipboard: shift_win_clipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_tap &kp LG(V)>;
         };
         macro_shift_space_n: macro_shift_space_n {
             compatible = "zmk,behavior-macro";
@@ -691,10 +696,10 @@ layer_7 {
     layer_15 {
         display-name = "Mac Shift Layout";
         bindings = <
-&trans  &trans  &trans  &mac_tile_up_hold E  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mac_tile_left_hold S  &mac_tile_down_hold D  &mac_tile_right_hold F  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &kp LS(Q)  &kp LS(W)  &mac_tile_up_hold 0 LS(E)  &kp LS(R)  &kp LS(T)  &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)  &none
+&none  &kp LS(A)  &mac_tile_left_hold 0 LS(S)  &mac_tile_down_hold 0 LS(D)  &mac_tile_right_hold 0 LS(F)  &kp LS(G)  &kp LS(H)  &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp LC(SEMI)  &none
+&none  &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)  &kp C_MUTE  &none  &kp LS(N)  &kp LS(M)  &kp LS(COMMA)  &kp LS(DOT)  &kp LS(FSLH)  &none
+&to 2  &none  &none  &kp LANG2  &kp LS(SPACE)  &kp TAB  &kp BSPC  &kp LS(ENTER)  &kp LANG1  &none  &none  &none
         >;
         sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
@@ -702,10 +707,10 @@ layer_7 {
     layer_16 {
         display-name = "Win Shift Layout";
         bindings = <
-&trans  &trans  &trans  &win_tile_up_hold E  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &win_tile_left_hold S  &win_tile_down_hold D  &win_tile_right_hold F  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &win_clipboard_hold V  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LS(ESC)  &kp LS(Q)  &kp LS(W)  &win_tile_up_hold 0 LS(E)  &kp LS(R)  &kp LS(T)  &kp LS(Y)  &kp LS(U)  &kp LS(I)  &kp LS(O)  &kp LS(P)  &kp LS(DELETE)
+&kp LSHIFT  &kp LS(A)  &win_tile_left_hold 0 LS(S)  &win_tile_down_hold 0 LS(D)  &win_tile_right_hold 0 LS(F)  &kp LS(G)  &kp LS(H)  &kp LS(J)  &kp LS(K)  &kp LS(L)  &kp LS(MINUS)  &kp LS(INT1)
+&none  &kp LS(Z)  &kp LS(X)  &kp LS(C)  &win_clipboard_hold 0 LS(V)  &kp LS(B)  &kp C_MUTE  &none  &kp LS(N)  &kp LS(M)  &kp LS(COMMA)  &kp LS(DOT)  &kp LS(FSLH)  &none
+&none  &none  &kp LALT  &kp LANG2  &kp LS(SPACE)  &kp TAB  &kp BSPC  &kp LS(ENTER)  &kp LANG1  &kp LS(F7)  &none  &none
         >;
         sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
