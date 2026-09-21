@@ -77,6 +77,13 @@ jobs:
           }
           for old, new in replacements.items():
               text = text.replace(old, new)
+          mouse_replacements = {
+              '&none  &none  &none  &mmv MOVE_UP  &none  &none  &none  &none  &none  &none  &none  &none\n&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none  &mouse_boost_click 10 LCLK  &none  &mkp RCLK  &none  &none\n&none  &none  &none  &none  &none  &none  &kp C_MUTE  &none  &none  &none  &none  &none  &none  &none\n&none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &none  &none  &none  &to 4': '&none  &none  &none  &mmv MOVE_Y(-3600)  &none  &none  &none  &none  &none  &none  &none  &none\n&none  &none  &mmv MOVE_X(-3600)  &mmv MOVE_Y(3600)  &mmv MOVE_X(3600)  &none  &none  &mkp LCLK  &none  &mkp RCLK  &none  &none\n&none  &none  &none  &none  &none  &none  &kp C_MUTE  &none  &none  &none  &none  &none  &none  &none\n&none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &mo 10  &none  &none  &none  &to 4',
+              'display-name = "Mouse Boost";': 'display-name = "Mouse Standard";',
+              '&trans  &trans  &trans  &mmv MOVE_Y(-1200)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans\n&trans  &trans  &mmv MOVE_X(-1200)  &mmv MOVE_Y(1200)  &mmv MOVE_X(1200)  &trans  &trans  &trans  &trans  &trans  &trans  &trans': '&trans  &trans  &trans  &mmv MOVE_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans\n&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans',
+          }
+          for old, new in mouse_replacements.items():
+              text = text.replace(old, new)
           path.write_text(text)
           PY
           cd "${ZMK_BUILD_BASE}"
