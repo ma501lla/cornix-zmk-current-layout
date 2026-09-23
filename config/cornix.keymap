@@ -8,39 +8,6 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
-    macros {
-        macro_space_n: macro_space_n {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SPACE &kp N>;
-        };
-        macro_star_paren: macro_star_paren {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
-        };
-        macro_m28: macro_m28 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N8 &kp N1 &kp FSLH &kp N0 &kp N1 &kp FSLH &kp N0 &kp N8>;
-        };
-        macro_m29: macro_m29 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(A) &kp N5 &kp N1 &kp N3 &kp N4>;
-        };
-        macro_m30: macro_m30 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(N1) &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
-        };
-        macro_m31: macro_m31 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp N1 &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
-        };
-    };
-
     behaviors {
         td200: tap_dance_200 {
             compatible = "zmk,behavior-hold-tap";
@@ -82,6 +49,18 @@
             bindings = <&kp MINUS>, <&kp LC(SEMI)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        bspc_del_shift_bspc: bspc_del_shift_bspc {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td200 DELETE BSPC>, <&kp BSPC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        ctrl_enter_alt_enter: ctrl_enter_alt_enter {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ENTER>, <&kp LA(ENTER)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
         minus_slash: minus_slash {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -94,38 +73,354 @@
             bindings = <&kp KP_PLUS>, <&kp KP_MULTIPLY>;
             tapping-term-ms = <200>;
         };
-        macro_paren_pair: macro_paren_pair {
+        mac_single_double_quote: mac_single_double_quote {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp LS(SQT)>;
+            tapping-term-ms = <200>;
+        };
+        jis_single_double_quote: jis_single_double_quote {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N7)>, <&kp LS(N2)>;
+            tapping-term-ms = <200>;
+        };
+        hash_plus_multiply_hold: hash_plus_multiply_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&macro_hash>, <&plus_multiply>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
+        percent_pipe_td: percent_pipe_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N5)>, <&kp LS(BSLH)>;
+            tapping-term-ms = <200>;
+        };
+        angle_pair_td: angle_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&macro_angle_pair>;
+            tapping-term-ms = <200>;
+        };
+        shift_space_n_hold: shift_space_n_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&macro_shift_space_n>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+        };
+        mac_paren_pair_td: mac_paren_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N9)>, <&macro_mac_paren_pair>;
+            tapping-term-ms = <200>;
+        };
+        mac_brace_pair_td: mac_brace_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LBKT)>, <&macro_mac_brace_pair>;
+            tapping-term-ms = <200>;
+        };
+        mac_bracket_pair_td: mac_bracket_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&macro_mac_bracket_pair>;
+            tapping-term-ms = <200>;
+        };
+        win_paren_pair_td: win_paren_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N8)>, <&macro_win_paren_pair>;
+            tapping-term-ms = <200>;
+        };
+        win_brace_pair_td: win_brace_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp LS(RBKT)>, <&macro_win_brace_pair>;
+            tapping-term-ms = <200>;
+        };
+        win_bracket_pair_td: win_bracket_pair_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp RBKT>, <&macro_win_bracket_pair>;
+            tapping-term-ms = <200>;
+        };
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
+        };
+        scroll_page_hold: scroll_page_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&msc>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        mouse_boost_click: mouse_boost_click {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&mkp>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+        };
+        shift_lm_tab: shift_lm_tab {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <3>;
+            bindings = <&lm>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+        one_hand_toggle: one_hand_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            bindings = <&tog>, <&none>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+        mac_tile_left_hold: mac_tile_left_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_mac_left>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        mac_tile_up_hold: mac_tile_up_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_mac_up>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        mac_tile_down_hold: mac_tile_down_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_mac_down>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        mac_tile_right_hold: mac_tile_right_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_mac_right>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        win_tile_left_hold: win_tile_left_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_win_left>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        win_tile_up_hold: win_tile_up_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_win_up>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        win_tile_down_hold: win_tile_down_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_win_down>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        win_tile_right_hold: win_tile_right_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_tile_win_right>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+        win_clipboard_hold: win_clipboard_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&shift_win_clipboard>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+        };
+    };
+
+    macros {
+        lm: lm {
+            compatible = "zmk,behavior-macro-two-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <2>;
+            bindings
+                = <&macro_param_1to1>
+                , <&macro_press &mo MACRO_PLACEHOLDER>
+                , <&macro_param_2to1>
+                , <&macro_press &kp MACRO_PLACEHOLDER>
+                , <&macro_pause_for_release>
+                , <&macro_param_2to1>
+                , <&macro_release &kp MACRO_PLACEHOLDER>
+                , <&macro_param_1to1>
+                , <&macro_release &mo MACRO_PLACEHOLDER>
+                ;
+        };
+        shift_tile_mac_left: shift_tile_mac_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp LEFT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_mac_up: shift_tile_mac_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp UP>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_mac_down: shift_tile_mac_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp DOWN>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_mac_right: shift_tile_mac_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_press &kp LEFT_CONTROL>, <&macro_press &kp GLOBE>, <&macro_tap &kp RIGHT>, <&macro_release &kp GLOBE>, <&macro_release &kp LEFT_CONTROL>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_win_left: shift_tile_win_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(LEFT)>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_win_up: shift_tile_win_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(UP)>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_win_down: shift_tile_win_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(DOWN)>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_tile_win_right: shift_tile_win_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(RIGHT)>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        shift_win_clipboard: shift_win_clipboard {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <20>;
+            bindings = <&macro_release &kp LEFT_SHIFT>, <&macro_tap &kp LG(V)>, <&macro_press &kp LEFT_SHIFT>;
+        };
+        macro_shift_space_n: macro_shift_space_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LEFT_SHIFT>, <&macro_tap>, <&kp SPACE>, <&kp N>, <&macro_release>, <&kp LEFT_SHIFT>;
+        };
+        macro_bt_mac: macro_bt_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 0 &to 0>;
+        };
+        macro_bt_win: macro_bt_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 2 &to 4>;
+        };
+        macro_bt_mac_1: macro_bt_mac_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 1 &to 0>;
+        };
+        macro_bt_mac_3: macro_bt_mac_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 3 &to 0>;
+        };
+        macro_bt_mac_4: macro_bt_mac_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_SEL 4 &to 0>;
+        };
+        macro_angle_pair: macro_angle_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(COMMA) &kp LS(DOT) &kp LEFT>;
+        };
+        macro_hash: macro_hash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N3)>;
+        };
+        macro_star_paren: macro_star_paren {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp ASTERISK &kp LPAR &kp LEFT>;
+        };
+        macro_mac_paren_pair: macro_mac_paren_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(N9) &kp LS(N0) &kp LEFT>;
         };
-        macro_brace_pair: macro_brace_pair {
+        macro_mac_brace_pair: macro_mac_brace_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(LBKT) &kp LS(RBKT) &kp LEFT>;
         };
-        macro_bracket_pair: macro_bracket_pair {
+        macro_mac_bracket_pair: macro_mac_bracket_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LBKT &kp RBKT &kp LEFT>;
         };
-        paren_pair_td: paren_pair_td {
-            compatible = "zmk,behavior-tap-dance";
+        macro_win_paren_pair: macro_win_paren_pair {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(N9)>, <&macro_paren_pair>;
-            tapping-term-ms = <200>;
+            bindings = <&macro_tap &kp LS(N8) &kp LS(N9) &kp LEFT>;
         };
-        brace_pair_td: brace_pair_td {
-            compatible = "zmk,behavior-tap-dance";
+        macro_win_brace_pair: macro_win_brace_pair {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(LBKT)>, <&macro_brace_pair>;
-            tapping-term-ms = <200>;
+            bindings = <&macro_tap &kp LS(RBKT) &kp LS(BSLH) &kp LEFT>;
         };
-        bracket_pair_td: bracket_pair_td {
-            compatible = "zmk,behavior-tap-dance";
+        macro_win_bracket_pair: macro_win_bracket_pair {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LBKT>, <&macro_bracket_pair>;
-            tapping-term-ms = <200>;
+            bindings = <&macro_tap &kp RBKT &kp BSLH &kp LEFT>;
+        };
+        macro_m28: macro_m28 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N8 &kp N1 &kp FSLH &kp N0 &kp N1 &kp FSLH &kp N0 &kp N8>;
+        };
+        macro_m29: macro_m29 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(A) &kp N5 &kp N1 &kp N3 &kp N4>;
+        };
+        macro_m30: macro_m30 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(N1) &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
+        };
+        macro_m31: macro_m31 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N1 &kp Q &kp A &kp Z &kp N2 &kp N2 &kp N0 &kp N1>;
         };
     };
 
@@ -191,6 +486,54 @@ vial_combo_9 {
     layers = <5>;
     timeout-ms = <50>;
 };
+thumb_caps_lock_mac {
+    bindings = <&kp CAPSLOCK>;
+    key-positions = <41 46>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+thumb_caps_lock_win {
+    bindings = <&kp CAPSLOCK>;
+    key-positions = <41 46>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
+num_layer_mac_enter {
+    bindings = <&to 11>;
+    key-positions = <14 15 16>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+num_layer_win_enter {
+    bindings = <&to 12>;
+    key-positions = <14 15 16>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
+num_layer_mac_exit {
+    bindings = <&to 0>;
+    key-positions = <14 15 16>;
+    layers = <11>;
+    timeout-ms = <80>;
+};
+num_layer_win_exit {
+    bindings = <&to 4>;
+    key-positions = <14 15 16>;
+    layers = <12>;
+    timeout-ms = <80>;
+};
+bt_layer_mac_enter {
+    bindings = <&to 9>;
+    key-positions = <41 42 43>;
+    layers = <0>;
+    timeout-ms = <80>;
+};
+bt_layer_win_enter {
+    bindings = <&to 9>;
+    key-positions = <41 42 43>;
+    layers = <4>;
+    timeout-ms = <80>;
+};
 
     };
 
@@ -199,89 +542,89 @@ vial_combo_9 {
     layer_0 {
         display-name = "Vial 0";
         bindings = <
-&none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
-&none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &kp D  &kp F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
-&none  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
-&to 2  &none  &none  &kp LCTRL  &lt200 1 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &lt250 2 ENTER  &kp LC(SPACE)  &none  &none  &none
+    &none  &td200 ESC Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &none
+    &none  &td250 LG(A) A  &td250 LS(LG(N3)) S  &lt200 13 D  &td250 LC(F) F  &kp G  &kp H  &lt200 2 J  &lt200 7 K  &kp L  &mac_minus_hankaku  &none
+&one_hand_toggle 17  &td250 LG(Z) Z  &kp X  &td250 LG(C) C  &td250 LG(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp LS(FSLH)  &none
+&to 2  &none  &none  &td250 LCTRL LANG2  &lt200 1 SPACE  &shift_lm_tab 15 LSHIFT TAB  &bspc_del_shift_bspc  &lt250 2 ENTER  &kp LANG1  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_1 {
         display-name = "Vial 1";
         bindings = <
-&none  &kp LS(N1)  &none  &none  &none  &none  &kp N6  &kp N7  &kp N8  &kp N9  &td250 LS(N5) KP_DIVIDE  &none
-&none  &td250 LS(N7) LS(N2)  &kp SEMI  &kp F3  &kp F10  &kp F11  &kp LS(N3)  &kp N4  &kp N5  &kp N6  &minus_slash  &none
-&none  &none  &none  &kp LS(SEMI)  &none  &none  &none  &to 9  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
+    &none  &mac_single_double_quote  &none  &kp LS(N1)  &kp F9  &kp F7  &kp EQUAL  &kp N7  &kp N8  &kp N9  &percent_pipe_td  &none
+&none  &td250 LS(N7) LS(N2)  &kp SEMI  &kp F3  &kp F10  &kp F11  &hash_plus_multiply_hold 0 0  &kp N4  &kp N5  &kp N6  &minus_slash  &none
+&none  &none  &none  &kp LS(SEMI)  &none  &td250 FSLH BSLH  &none  &none  &kp DOT  &kp N1  &kp N2  &kp N3  &plus_multiply  &none
+&none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &kp N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_2 {
         display-name = "Vial 2";
         bindings = <
-&none  &none  &none  &kp UP  &none  &none  &none  &none  &paren_pair_td  &kp LS(N0)  &none  &none
-&none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &brace_pair_td  &kp LS(RBKT)  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &bracket_pair_td  &kp RBKT  &none  &none
-&to 0  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &none  &msc SCRL_DOWN  &none  &none  &none
+&none  &none  &none  &kp UP  &none  &none  &none  &none  &mac_paren_pair_td  &kp LS(N0)  &none  &none
+&none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &mac_brace_pair_td  &kp LS(RBKT)  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &mac_bracket_pair_td  &kp RBKT  &none  &none
+&to 0  &none  &none  &none  &scroll_page_hold SCRL_UP PG_DN  &scroll_page_hold SCRL_DOWN PG_UP  &none  &none  &msc SCRL_DOWN  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp 0 C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
-    layer_3 {
+layer_3 {
         display-name = "Vial 3";
         bindings = <
 &none  &none  &none  &mmv MOVE_UP  &none  &none  &none  &none  &none  &none  &none  &none
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none  &mkp LCLK  &none  &mkp RCLK  &none  &none
 &none  &none  &none  &kp N1  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &kp ENTER  &none  &none  &none  &to 4
+&none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &none  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_4 {
         display-name = "Vial 4";
         bindings = <
-&kp ESC  &td200 ESC Q  &td250 LG(TAB) W  &kp E  &kp R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
-&kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &kp D  &kp F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
-&none  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &to 9  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
-&none  &macro_space_n  &kp LALT  &kp LCTRL  &lt200 5 SPACE  &td200 LSHIFT TAB  &td200 DELETE BSPC  &kp ENTER  &kp CAPSLOCK  &kp F7  &none  &none
+    &kp ESC  &td200 ESC Q  &kp W  &td250 LG(TAB) E  &shift_space_n_hold 0 R  &kp T  &kp Y  &kp U  &lt250 8 I  &kp O  &kp P  &kp DELETE
+    &kp LSHIFT  &td250 LC(A) A  &td250 PSCRN S  &lt200 14 D  &td250 LC(F) F  &kp G  &kp H  &lt200 6 J  &lt200 7 K  &kp L  &jis_minus_underscore  &kp INT1
+&one_hand_toggle 17  &td250 LC(Z) Z  &kp X  &td250 LC(C) C  &td250 LC(V) V  &kp B  &kp C_MUTE  &none  &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &none
+&none  &none  &kp LALT  &td250 LCTRL LANG2  &lt200 5 SPACE  &shift_lm_tab 16 LSHIFT TAB  &bspc_del_shift_bspc  &ctrl_enter_alt_enter  &kp LANG1  &kp F7  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_5 {
         display-name = "Vial 5";
         bindings = <
-&none  &kp LS(N1)  &none  &none  &none  &kp DELETE  &td250 LG(N6) N6  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &td250 LS(N5) KP_DIVIDE  &none
-&none  &td250 LS(N6) LBKT  &kp SEMI  &kp F3  &kp F10  &kp F11  &kp LS(N3)  &td250 LG(N4) N4  &td250 LG(N5) N5  &td250 LG(N6) N6  &minus_slash  &kp BSLH
-&none  &none  &none  &kp SQT  &kp LC(Z)  &none  &none  &none  &kp LS(MINUS)  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
+    &none  &jis_single_double_quote  &none  &kp LS(N1)  &kp F9  &kp F7  &kp LS(MINUS)  &td250 LG(N7) N7  &td250 LG(N8) N8  &td250 LG(N9) N9  &percent_pipe_td  &none
+&none  &td250 LS(N6) LBKT  &kp SEMI  &kp F3  &kp F10  &kp F11  &hash_plus_multiply_hold 0 0  &td250 LG(N4) N4  &td250 LG(N5) N5  &td250 LG(N6) N6  &minus_slash  &kp BSLH
+&none  &none  &none  &kp SQT  &kp LC(Z)  &td250 FSLH INT3  &none  &none  &kp DOT  &td250 LG(N1) N1  &td250 LG(N2) N2  &td250 LG(N3) N3  &plus_multiply  &none
+&none  &none  &none  &none  &none  &none  &bspc_del_shift_bspc  &kp ENTER  &td250 LG(N0) N0  &kp DOT  &kp KP_MULTIPLY  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_6 {
         display-name = "Vial 6";
         bindings = <
-&none  &none  &none  &kp UP  &none  &none  &none  &none  &kp LS(N8)  &paren_pair_td  &macro_star_paren  &none
-&none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &kp LS(RBKT)  &kp LS(BSLH)  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp RBKT  &kp BSLH  &none  &none
-&none  &none  &none  &none  &none  &none  &td200 DELETE BSPC  &none  &none  &none  &none  &none
+&none  &none  &none  &kp UP  &none  &none  &none  &none  &win_paren_pair_td  &kp LS(N9)  &macro_star_paren  &none
+&none  &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none  &none  &win_brace_pair_td  &kp LS(BSLH)  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &win_bracket_pair_td  &kp BSLH  &none  &none
+&none  &none  &none  &none  &scroll_page_hold SCRL_DOWN PG_DN  &scroll_page_hold SCRL_UP PG_UP  &bspc_del_shift_bspc  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
-    layer_7 {
+layer_7 {
         display-name = "Vial 7";
         bindings = <
-&none  &none  &none  &mmv MOVE_UP  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &none  &mkp LCLK  &none  &mkp RCLK  &none  &none
-&none  &none  &none  &none  &none  &none  &kp C_MUTE  &to 9  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_DOWN  &none  &mo 10  &none  &none  &none  &to 4
+&none  &none  &none  &mmv MOVE_Y(-3600)  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &mmv MOVE_X(-3600)  &mmv MOVE_Y(3600)  &mmv MOVE_X(3600)  &none  &none  &mkp LCLK  &none  &mkp RCLK  &none  &none
+&none  &none  &none  &none  &none  &none  &kp C_MUTE  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &msc SCRL_DOWN  &kp PG_DN  &kp PG_UP  &none  &mo 10  &none  &none  &none  &to 4
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_8 {
@@ -292,29 +635,117 @@ vial_combo_9 {
 &none  &none  &none  &none  &none  &none  &kp C_MUTE  &mkp MCLK  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &macro_m29  &macro_m30  &macro_m31  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_9 {
         display-name = "Vial 9";
         bindings = <
-&none  &none  &bt BT_SEL 2  &none  &none  &none  &none  &none  &bt BT_SEL 1  &none  &none  &bt BT_CLR
+&none  &macro_bt_mac_4  &macro_bt_mac_3  &macro_bt_win  &macro_bt_mac_1  &macro_bt_mac  &none  &none  &none  &none  &none  &bt BT_CLR
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_SEL 0  &none  &none  &none  &none
-&none  &none  &none  &to 4  &to 4  &to 4  &to 0  &to 0  &to 0  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     layer_10 {
-        display-name = "Mouse Boost";
+        display-name = "Mouse Standard";
         bindings = <
-&trans  &trans  &trans  &mmv MOVE_Y(-1200)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mmv MOVE_X(-1200)  &mmv MOVE_Y(1200)  &mmv MOVE_X(1200)  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &mmv MOVE_UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
-        sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_11 {
+        display-name = "Mac Num";
+        bindings = <
+&none  &none  &kp N7  &kp N8  &kp N9  &kp EQUAL  &none  &none  &none  &none  &none  &none
+&none  &minus_slash  &kp N4  &kp N5  &kp N6  &plus_multiply  &none  &none  &none  &none  &none  &none
+&none  &kp EQUAL  &kp N1  &kp N2  &kp N3  &kp DOT  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp N0  &kp ENTER  &kp BSPC  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_12 {
+        display-name = "Win Num";
+        bindings = <
+&none  &none  &kp N7  &kp N8  &kp N9  &kp LS(MINUS)  &none  &none  &none  &none  &none  &none
+&none  &minus_slash  &kp N4  &kp N5  &kp N6  &plus_multiply  &none  &none  &none  &none  &none  &none
+&none  &kp LS(MINUS)  &kp N1  &kp N2  &kp N3  &kp DOT  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &kp N0  &kp ENTER  &kp BSPC  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_13 {
+        display-name = "Mac Nav";
+        bindings = <
+&none  &none  &none  &none  &kp LS(LG(LBKT))  &kp LS(LG(RBKT))  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LG(LBKT)  &kp LG(RBKT)  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LS(TAB)  &kp TAB  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_14 {
+        display-name = "Win Nav";
+        bindings = <
+&none  &none  &none  &none  &kp LS(LC(TAB))  &kp LC(TAB)  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LA(LEFT)  &kp LA(RIGHT)  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &kp LS(TAB)  &kp TAB  &none  &none  &none  &none  &none  &none
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_15 {
+        display-name = "Mac Shift Layout";
+        bindings = <
+&trans  &trans  &trans  &mac_tile_up_hold 0 E  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mac_tile_left_hold 0 S  &mac_tile_down_hold 0 D  &mac_tile_right_hold 0 F  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_16 {
+        display-name = "Win Shift Layout";
+        bindings = <
+&trans  &trans  &trans  &win_tile_up_hold 0 E  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &win_tile_left_hold 0 S  &win_tile_down_hold 0 D  &win_tile_right_hold 0 F  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &win_clipboard_hold 0 V  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_17 {
+        display-name = "One Hand";
+        bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&one_hand_toggle 17  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mo 18  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
+    };
+
+    layer_18 {
+        display-name = "One Hand Mirror";
+        bindings = <
+&trans  &kp P  &kp O  &kp I  &kp U  &kp Y  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp SEMI  &kp L  &kp K  &kp J  &kp H  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp FSLH  &kp DOT  &kp COMMA  &kp M  &kp N  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+        sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
     };
 
     };
