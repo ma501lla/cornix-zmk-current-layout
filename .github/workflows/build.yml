@@ -45,44 +45,18 @@ jobs:
 
           text = re.sub(
               r"        shift_lm_tab: shift_lm_tab \{\n            compatible = \"zmk,behavior-hold-tap\";\n            #binding-cells = <3>;\n            bindings = <&lm>, <&kp>;\n            flavor = \"tap-preferred\";\n            tapping-term-ms = <200>;\n        \};",
-              "        shift_lm_tab_mac: shift_lm_tab_mac {\n"
+              "        shift_lm_tab: shift_lm_tab {\n"
               "            compatible = \"zmk,behavior-hold-tap\";\n"
               "            #binding-cells = <2>;\n"
-              "            bindings = <&shift_layer_mac>, <&kp>;\n"
-              "            flavor = \"tap-preferred\";\n"
-              "            tapping-term-ms = <200>;\n"
-              "        };\n"
-              "        shift_lm_tab_win: shift_lm_tab_win {\n"
-              "            compatible = \"zmk,behavior-hold-tap\";\n"
-              "            #binding-cells = <2>;\n"
-              "            bindings = <&shift_layer_win>, <&kp>;\n"
+              "            bindings = <&kp>, <&kp>;\n"
               "            flavor = \"tap-preferred\";\n"
               "            tapping-term-ms = <200>;\n"
               "        };",
               text,
           )
 
-          text = re.sub(
-              r"        lm: lm \{\n            compatible = \"zmk,behavior-macro-two-param\";\n            wait-ms = <0>;\n            tap-ms = <0>;\n            #binding-cells = <2>;\n            bindings\n                = <&macro_param_1to1>\n                , <&macro_press &mo MACRO_PLACEHOLDER>\n                , <&macro_param_2to1>\n                , <&macro_press &kp MACRO_PLACEHOLDER>\n                , <&macro_pause_for_release>\n                , <&macro_param_2to1>\n                , <&macro_release &kp MACRO_PLACEHOLDER>\n                , <&macro_param_1to1>\n                , <&macro_release &mo MACRO_PLACEHOLDER>\n                ;\n        \};",
-              "        shift_layer_mac: shift_layer_mac {\n"
-              "            compatible = \"zmk,behavior-macro\";\n"
-              "            #binding-cells = <0>;\n"
-              "            wait-ms = <0>;\n"
-              "            tap-ms = <0>;\n"
-              "            bindings = <&macro_press &mo 15>, <&macro_press &kp LEFT_SHIFT>, <&macro_pause_for_release>, <&macro_release &kp LEFT_SHIFT>, <&macro_release &mo 15>;\n"
-              "        };\n"
-              "        shift_layer_win: shift_layer_win {\n"
-              "            compatible = \"zmk,behavior-macro\";\n"
-              "            #binding-cells = <0>;\n"
-              "            wait-ms = <0>;\n"
-              "            tap-ms = <0>;\n"
-              "            bindings = <&macro_press &mo 16>, <&macro_press &kp LEFT_SHIFT>, <&macro_pause_for_release>, <&macro_release &kp LEFT_SHIFT>, <&macro_release &mo 16>;\n"
-              "        };",
-              text,
-          )
-
-          text = text.replace("&shift_lm_tab 15 LSHIFT TAB", "&shift_lm_tab_mac 0 TAB")
-          text = text.replace("&shift_lm_tab 16 LSHIFT TAB", "&shift_lm_tab_win 0 TAB")
+          text = text.replace("&shift_lm_tab 15 LSHIFT TAB", "&shift_lm_tab LSHIFT TAB")
+          text = text.replace("&shift_lm_tab 16 LSHIFT TAB", "&shift_lm_tab LSHIFT TAB")
           path.write_text(text)
           PY
 
