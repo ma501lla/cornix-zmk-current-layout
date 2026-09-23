@@ -47,14 +47,14 @@ jobs:
               r"        shift_lm_tab: shift_lm_tab \{\n            compatible = \"zmk,behavior-hold-tap\";\n            #binding-cells = <3>;\n            bindings = <&lm>, <&kp>;\n            flavor = \"tap-preferred\";\n            tapping-term-ms = <200>;\n        \};",
               "        shift_lm_tab_mac: shift_lm_tab_mac {\n"
               "            compatible = \"zmk,behavior-hold-tap\";\n"
-              "            #binding-cells = <1>;\n"
+              "            #binding-cells = <2>;\n"
               "            bindings = <&shift_layer_mac>, <&kp>;\n"
               "            flavor = \"tap-preferred\";\n"
               "            tapping-term-ms = <200>;\n"
               "        };\n"
               "        shift_lm_tab_win: shift_lm_tab_win {\n"
               "            compatible = \"zmk,behavior-hold-tap\";\n"
-              "            #binding-cells = <1>;\n"
+              "            #binding-cells = <2>;\n"
               "            bindings = <&shift_layer_win>, <&kp>;\n"
               "            flavor = \"tap-preferred\";\n"
               "            tapping-term-ms = <200>;\n"
@@ -81,8 +81,8 @@ jobs:
               text,
           )
 
-          text = text.replace("&shift_lm_tab 15 LSHIFT TAB", "&shift_lm_tab_mac TAB")
-          text = text.replace("&shift_lm_tab 16 LSHIFT TAB", "&shift_lm_tab_win TAB")
+          text = text.replace("&shift_lm_tab 15 LSHIFT TAB", "&shift_lm_tab_mac 0 TAB")
+          text = text.replace("&shift_lm_tab 16 LSHIFT TAB", "&shift_lm_tab_win 0 TAB")
           path.write_text(text)
           PY
 
