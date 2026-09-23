@@ -9,6 +9,8 @@ env:
   SOURCE_CONFIG_DIR: ${{ github.workspace }}/config
   ZMK_BUILD_BASE: /tmp/zmk-config
   ZMK_CONFIG_DIR: /tmp/zmk-config/config
+  CORNIX_MODULE_DIR: /tmp/zmk-config/zmk-keyboard-cornix
+  CORNIX_BOARD_DIR: /tmp/zmk-config/zmk-keyboard-cornix/boards/jzf/cornix
   ARTIFACT_DIR: /tmp/zmk-firmware-artifacts
 
 jobs:
@@ -29,6 +31,65 @@ jobs:
           west update --fetch-opt=--filter=tree:0
           west zephyr-export
 
+      - name: Patch Cornix board qualifiers
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cp "${CORNIX_BOARD_DIR}/cornix_left.dts" "${CORNIX_BOARD_DIR}/cornix_left_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_left_defconfig" "${CORNIX_BOARD_DIR}/cornix_left_nrf52840_zmk_defconfig"
+          cp "${CORNIX_BOARD_DIR}/cornix_right.dts" "${CORNIX_BOARD_DIR}/cornix_right_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_right_defconfig" "${CORNIX_BOARD_DIR}/cornix_right_nrf52840_zmk_defconfig"
+          cp "${CORNIX_BOARD_DIR}/cornix_ph_left.dts" "${CORNIX_BOARD_DIR}/cornix_ph_left_nrf52840_zmk.dts"
+          cp "${CORNIX_BOARD_DIR}/cornix_ph_left_defconfig" "${CORNIX_BOARD_DIR}/cornix_ph_left_nrf52840_zmk_defconfig"
+
+          cat > "${CORNIX_BOARD_DIR}/board.yml" <<'EOF'
+          boards:
+            - name: cornix_left
+              vendor: jzf
+              socs:
+                - name: nrf52840
+                  variants:
+                    - name: zmk
+              revision:
+                format: major.minor.patch
+                default: 1.0.0
+                revisions:
+                  - name: 1.0.0
+            - name: cornix_right
+              vendor: jzf
+              socs:
+                - name: nrf52840
+                  variants:
+                    - name: zmk
+              revision:
+                format: major.minor.patch
+                default: 1.0.0
+                revisions:
+                  - name: 1.0.0
+            - name: cornix_ph_left
+              vendor: jzf
+              socs:
+                - name: nrf52840
+                  variants:
+                    - name: zmk
+              revision:
+                format: major.minor.patch
+                default: 1.0.0
+                revisions:
+                  - name: 1.0.0
+          EOF
+
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ["cornix_left", "cornix_right", "cornix_ph_left"]:
+              path = Path("/tmp/zmk-config/zmk-keyboard-cornix/boards/jzf/cornix") / f"Kconfig.{name}"
+              text = path.read_text()
+              if "select ZMK_BOARD_COMPAT" not in text:
+                  text = text.replace("    select SOC_NRF52840_QIAA\n", "    select SOC_NRF52840_QIAA\n    select ZMK_BOARD_COMPAT\n")
+              path.write_text(text)
+          PY
+
       - name: Build firmware
         shell: bash
         run: |
@@ -40,11 +101,15 @@ jobs:
             local board="$1"
             local artifact="$2"
             local shield="${3:-}"
+            local snippet="${4:-}"
             local build_dir="/tmp/zmk-build-${artifact}"
             local cmake_args=(-DZMK_CONFIG="${ZMK_CONFIG_DIR}")
 
             if [ -n "${shield}" ]; then
               cmake_args+=(-DSHIELD="${shield}")
+            fi
+            if [ -n "${snippet}" ]; then
+              cmake_args+=(-DSNIPPET="${snippet}")
             fi
 
             west build \
@@ -63,9 +128,9 @@ jobs:
             fi
           }
 
-          build_one cornix_left cornix_left
-          build_one cornix_right cornix_right
-          build_one cornix_right reset settings_reset
+          build_one "cornix_left@1.0.0//zmk" cornix_left cornix_layer9_led_test studio-rpc-usb-uart
+          build_one "cornix_right@1.0.0//zmk" cornix_right cornix_layer9_led_test
+          build_one "cornix_right@1.0.0//zmk" reset settings_reset
 
       - name: Upload firmware
         uses: actions/upload-artifact@v7
